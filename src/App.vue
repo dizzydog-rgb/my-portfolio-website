@@ -13,7 +13,7 @@ const zeroCount = () => {
 
 <template>
   <div class="myCounter">
-    <h1>Click this COUNTER !</h1>
+    <h1>CLICK THIS COUNTER !</h1>
     <p>您已經點擊了 {{ count }} 次</p>
     <div class="btns">
       <button @click="incrementCount">點我增加計數</button>
