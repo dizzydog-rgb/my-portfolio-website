@@ -10,7 +10,6 @@ import BaseCounter from '../components/base/BaseCounter.vue'
       <div>
         <h2>計數器展示</h2>
         <BaseCounter />
-        <BaseCounter />
       </div>
     </section>
   </main>

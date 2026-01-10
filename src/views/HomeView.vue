@@ -1,4 +1,5 @@
 <script setup>
+import HeroSection from '../components/sections/HeroSection.vue'
 import TwoTwo from '../components/base/TwoTwo.vue'
 </script>
 
