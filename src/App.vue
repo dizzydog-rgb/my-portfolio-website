@@ -1,24 +1,19 @@
 <script setup>
-import BaseCounter from './components/base/BaseCounter.vue'
-import TwoTwo from './components/base/TwoTwo.vue';
+import Navbar from './components/common/AppNavbar.vue'
+import Footer from './components/common/AppFooter.vue'
 </script>
 
 <template>
-  <main>
-    <HeroSection />
-
-    <section class="demo-section">
-      <div>
-        <h2>計數器展示</h2>
-        <BaseCounter />
-        <BaseCounter />
-      </div>
-      <div>
-        <h2>兔兔展示</h2>
-        <TwoTwo />
-      </div>
-    </section>
-  </main>
+  <div class="app-wrapper">
+    <Navbar />
+    <main class="content">
+      <router-view />
+    </main>
+    <Footer />
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+  body { margin: 0; font-family: sans-serif; }
+  .content { min-height: 80vh; }
+</style>
