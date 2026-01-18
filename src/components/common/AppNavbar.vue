@@ -1,16 +1,16 @@
 <script setup>
-  defineOptions({
-    name: 'AppNavbar'
-  })
+defineOptions({
+  name: 'AppNavbar',
+})
 </script>
 
 <template>
   <nav class="navbar">
-    <div class="logo">My Portfolio</div>
+    <div class="logo">Jackie Chen</div>
     <div class="links">
-      <router-link to="/">首頁</router-link>
-      <router-link to="/library">組件展示庫</router-link>
-      <router-link to="/blog">部落格</router-link>
+      <router-link to="/">About</router-link>
+      <router-link to="/library">Library</router-link>
+      <router-link to="/blog">Blog</router-link>
     </div>
   </nav>
 </template>
@@ -19,19 +19,29 @@
 .navbar {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   padding: 20px;
   background: #333;
   color: white;
+  .logo {
+    font-size: 32px;
+    font-family: 'Instrument Serif', serif;
+    letter-spacing: 0.05em;
+  }
+  .links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+  .links a {
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Instrument Serif', serif;
+    font-weight: 300;
+  }
 }
-.links{
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-}
-.links a {
-  color: white;
-  text-decoration: none;
-}
+
 /* 當前路徑的樣式 */
 .router-link-active {
   color: #2ecc71;
