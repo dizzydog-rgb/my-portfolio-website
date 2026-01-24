@@ -14,6 +14,12 @@ import Footer from './components/common/AppFooter.vue'
 </template>
 
 <style scoped>
-  body { margin: 0; font-family: sans-serif; }
-  .content { min-height: 80vh; }
+body {
+  margin: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
+}
+.content {
+  min-height: 80vh;
+}
 </style>

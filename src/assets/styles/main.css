@@ -1,1 +1,4 @@
 /* 全站通用的CSS */
+.app-wrapper {
+  background: url('../../assets/images/ukiyo-e-parpe-texture.avif') repeat top center;
+}
