@@ -1,6 +1,7 @@
 <script setup>
 import HeroSection from '../components/sections/HeroSection.vue'
 import TwoTwo from '../components/base/TwoTwo.vue'
+import SplitText from '@/components/gsap/SplitText.vue'
 </script>
 
 <template>
@@ -8,7 +9,7 @@ import TwoTwo from '../components/base/TwoTwo.vue'
     <HeroSection />
 
     <section class="demo-section">
-
+      <SplitText />
       <div>
         <h2>兔兔展示</h2>
         <TwoTwo />
