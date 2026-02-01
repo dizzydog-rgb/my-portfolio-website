@@ -22,7 +22,7 @@ onMounted(() => {
   // 先清理掉所有舊的追蹤器，避免熱更新造成的重複渲染
   ScrollTrigger.getAll().forEach((t) => t.kill())
 
-  // --- 1. 文字拆解邏輯 ---
+  // --- 1. 拆解各別文字 ---
   const textElement = textRef.value
   const text = textElement.textContent
   const chars = text.split('')
@@ -37,7 +37,7 @@ onMounted(() => {
   })
 
   // --- 2. 建立時間軸 ---
-  // 我們將所有的動畫串在一個 ScrollTrigger Timeline 裡
+  // 將所有的動畫串在一個 ScrollTrigger Timeline 裡
   const tl = gsap.timeline({
     scrollTrigger: {
       trigger: productSection.value,
@@ -49,7 +49,7 @@ onMounted(() => {
     },
   })
 
-  // 3. 定義飛入動畫 (從亂七八糟飛回原位)
+  // 3. 定義飛入動畫 (從四面八方飛回原位)
   tl.from('.char', {
     opacity: 0,
     x: () => Math.random() * 1000 - 500,
