@@ -42,7 +42,7 @@ onMounted(() => {
     scrollTrigger: {
       trigger: productSection.value,
       start: 'top top', // 碰到頂部開始
-      end: '+=500', // 捲動 800px 長度
+      end: '+=800', // 捲動 800px 長度
       scrub: 1, // 關鍵：這讓動畫跟隨滾輪
       pin: true, // 釘住螢幕
       markers: true, // 開啟標記，除錯完可以刪掉
