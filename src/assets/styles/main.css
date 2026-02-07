@@ -2,3 +2,6 @@
 .app-wrapper {
   background: url('../../assets/images/ukiyo-e-parpe-texture.avif') repeat top center;
 }
+img {
+  max-width: 100%;
+}

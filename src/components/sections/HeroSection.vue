@@ -1,12 +1,10 @@
 <template>
   <section class="hero" ref="heroRef">
     <div class="hero__content">
-      <h1 class="hero__title">你好，我是 <span class="highlight">前端開發者</span></h1>
-      <p class="hero__subtitle">專注於打造直觀且具備動態美感的網頁體驗。</p>
-      <div class="hero__actions">
-        <BaseButton @click="goProject">查看作品</BaseButton>
-        <BaseButton type="secondary">聯絡我</BaseButton>
-      </div>
+      <h1 class="hero__title">FRONTEND <br />DEVELOPER</h1>
+      <BaseButton class="hero__button" @click="goProject"
+        ><span>CONTACT ME</span><img src="@/assets/icons/arrow-top-right.svg" alt="arrow"
+      /></BaseButton>
     </div>
   </section>
 </template>
@@ -52,27 +50,49 @@ onMounted(() => {
 <style scoped>
 .hero {
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
   overflow: hidden;
+  padding-top: 75px;
+  display: flex;
+  align-items: end;
+  justify-content: start;
+  position: relative;
 }
 .hero__title {
-  font-size: 4rem;
-  margin-bottom: 1rem;
+  font-size: 120px;
+  line-height: 1.2;
+  color: #aa3b0f;
+  font-family: 'Instrument Serif', serif;
+  padding-left: 40px;
+  padding-bottom: 40px;
 }
-.hero__subtitle {
-  font-size: 1.5rem;
-  opacity: 0;
-} /* 先隱藏，交給 GSAP 控制 */
-.hero__actions {
-  margin-top: 2rem;
-  opacity: 0;
+.hero__button {
+  font-size: 40px;
+  font-family: 'Instrument Serif', serif;
+  color: #aa3b0f;
+  background: transparent;
+  opacity: 1;
+  position: absolute;
+  right: 40px;
+  top: 120px;
+  box-shadow: none;
   display: flex;
-  gap: 40px;
+  align-items: center;
+  gap: 10px;
+  border-radius: 50px;
+  padding: 10px 30px;
 }
-.highlight {
-  color: #2ecc71;
+.hero__button img {
+  color: #aa3b0f;
+  transition: 0.2s linear;
+}
+
+.hero__button:hover {
+  background: #aa3b0f;
+  color: #ffffff;
+  transform: translate(0);
+}
+.hero__button:hover img {
+  transform: rotate(45deg);
+  filter: brightness(0) invert(1);
 }
 </style>
