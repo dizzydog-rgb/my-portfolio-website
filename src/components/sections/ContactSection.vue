@@ -12,7 +12,7 @@
           <div class="link item_a">
             <a href="">
               <div>
-                <img src="@/assets/icons/mail.svg" alt="" />
+                <img src="@/assets/icons/mail-icon.svg" alt="" />
                 <span>Email: yisheng.chen.jackie@gmail.com</span>
               </div>
               <img src="@/assets/icons/arrow-outward.svg" alt="" />
@@ -21,7 +21,7 @@
           <div class="link item_b">
             <a href="">
               <div>
-                <img src="@/assets/icons/mail.svg" alt="" />
+                <img src="@/assets/icons/github-icon.svg" alt="" />
                 <span>Github</span>
               </div>
               <img src="@/assets/icons/arrow-outward.svg" alt="" />
@@ -30,7 +30,7 @@
           <div class="link item_c">
             <a href="">
               <div>
-                <img src="@/assets/icons/mail.svg" alt="" />
+                <img src="@/assets/icons/codepen-icon.svg" alt="" />
                 <span>CodePen</span>
               </div>
               <img src="@/assets/icons/arrow-outward.svg" alt="" />
@@ -39,7 +39,7 @@
           <div class="link item_d">
             <a href="">
               <div>
-                <img src="@/assets/icons/mail.svg" alt="" />
+                <img src="@/assets/icons/vocus-icon.svg" alt="" />
                 <span>BLOG(VOCUS)</span>
               </div>
               <img src="@/assets/icons/arrow-outward.svg" alt="" />
@@ -48,7 +48,7 @@
           <div class="link item_e">
             <a href="">
               <div>
-                <img src="@/assets/icons/mail.svg" alt="" />
+                <img src="@/assets/icons/linkedin-icon.svg" alt="" />
                 <span>LinkedIn</span>
               </div>
               <img src="@/assets/icons/arrow-outward.svg" alt="" />
@@ -130,6 +130,9 @@
   display: flex;
   align-items: center;
   gap: 20px;
+}
+.contact__info .link a > div img {
+  max-width: 24px;
 }
 .contact__info .link a span {
   font-size: 20px;
