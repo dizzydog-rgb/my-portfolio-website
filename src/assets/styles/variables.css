@@ -1,0 +1,223 @@
+/*統一設定*/
+.all * {
+  box-sizing: border-box;
+  max-width: 100%;
+  word-break: normal;
+}
+.all {
+  max-width: 2000px;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  font-family: 'Microsoft JhengHei';
+  font-family: var(--SFont);
+  background: var(--bgColor);
+  font-size: var(--f18);
+  color: var(--FontColor);
+  font-weight: 400;
+  line-height: 200%;
+  letter-spacing: 1px;
+}
+.all img {
+  width: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+.all a {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.all i {
+  font-style: normal;
+}
+.all li {
+  list-style: none;
+}
+.all ol {
+  padding: 0;
+  margin: 0;
+}
+.all ul {
+  padding: 0;
+  margin: 0;
+}
+.all h6,
+.all h5,
+.all h4,
+.all h3,
+.all h2,
+.all figure,
+.all p {
+  margin: 0;
+  font-size: inherit;
+}
+.all section {
+  overflow: initial;
+}
+
+:root {
+  --MainColor: #aa3b0f;
+  --SubColor: #dd551f;
+  --SubColor02: #d4426e;
+  --bgColor: #ffffff;
+  --SFont: 'Instrument Serif', serif;
+  --SFontSans: 'Instrument Sans';
+  --FontColor: #000000;
+  --f120: 120px;
+  --f80: 80px;
+  --f70: 70px;
+  --f60: 60px;
+  --f55: 55px;
+  --f50: 50px;
+  --f46: 46px;
+  --f42: 42px;
+  --f40: 40px;
+  --f36: 36px;
+  --f32: 32px;
+  --f30: 30px;
+  --f28: 28px;
+  --f26: 26px;
+  --f25: 25px;
+  --f24: 24px;
+  --f23: 23px;
+  --f22: 22px;
+  --f20: 20px;
+  --f18: 18px;
+  --f17: 17px;
+  --f16: 16px;
+  --containerPadding: 20px;
+}
+
+/*style start*/
+.index h1,
+.index h2,
+.index h3,
+.index h4,
+.index h5,
+.index h6 {
+  font-weight: normal;
+  letter-spacing: 0.15em;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.index p,
+.index li {
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  font-weight: normal;
+  text-align: justify;
+}
+
+/*RWD*/
+@media (max-width: 1440px) {
+  :root {
+    --containerPadding: 60px;
+  }
+}
+@media (max-width: 1024px) {
+  :root {
+    --f96: 78px;
+    --f80: 70px;
+    --f70: 60px;
+    --f60: 50px;
+    --f55: 48px;
+    --f50: 42px;
+    --f48: 40px;
+    --f46: 40px;
+    --f42: 38px;
+    --f40: 36px;
+    --f36: 32px;
+    --f32: 28px;
+    --f30: 26px;
+    --f28: 24px;
+    --f26: 24px;
+    --f25: 23px;
+    --f24: 22px;
+    --f23: 21px;
+    --f22: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --f96: 64px;
+    --f80: 58px;
+    --f70: 48px;
+    --f60: 40px;
+    --f55: 40px;
+    --f50: 40px;
+    --f46: 38px;
+    --f42: 30px;
+    --f40: 28px;
+    --f36: 26px;
+    --f32: 24px;
+    --f30: 22px;
+    --f28: 20px;
+    --f26: 20px;
+    --f25: 20px;
+    --f24: 20px;
+    --f23: 20px;
+    --f20: 18px;
+    --f18: 17px;
+    --f17: 16px;
+    --containerPadding: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --f96: 56px;
+    --f80: 50px;
+    --f70: 40px;
+    --f60: 32px;
+    --f55: 32px;
+    --f50: 30px;
+    --f46: 28px;
+    --f42: 26px;
+    --f40: 24px;
+    --f36: 22px;
+    --f32: 20px;
+    --f30: 20px;
+    --f28: 18px;
+    --f26: 18px;
+    --f25: 18px;
+    --f24: 18px;
+    --f23: 18px;
+    --f22: 18px;
+    --f20: 17px;
+    --f18: 16px;
+    --f17: 15px;
+    --f16: 15px;
+    --containerPadding: 20px;
+  }
+}
+
+@media (max-width: 375px) {
+  :root {
+    --f96: 48px;
+    --f80: 40px;
+    --f70: 36px;
+    --f60: 34px;
+    --f55: 28px;
+    --f50: 26px;
+    --f48: 24px;
+    --f46: 24px;
+    --f42: 22px;
+    --f40: 20px;
+    --f36: 18px;
+    --f32: 18px;
+    --f30: 18px;
+    --f28: 17px;
+    --f26: 17px;
+    --f25: 17px;
+    --f24: 17px;
+    --f23: 17px;
+    --f22: 17px;
+    --f20: 16px;
+    --f18: 15px;
+  }
+}

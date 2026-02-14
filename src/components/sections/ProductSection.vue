@@ -27,7 +27,7 @@
       <div class="product__img">
         <div class="product product01">
           <figure>
-            <img src="https://picsum.photos/seed/picsum/850/450" alt="My portfolio website" />
+            <img src="https://picsum.photos/id/23/850/450" alt="My portfolio website" />
           </figure>
           <ul class="carousel__text">
             <li><span>Vue.js</span><span>Node.js</span><span>Vite</span>SCSS<span></span></li>
@@ -36,7 +36,7 @@
         </div>
         <div class="product product01">
           <figure>
-            <img src="https://picsum.photos/seed/picsum/850/450" alt="Orderly & Steady" />
+            <img src="https://picsum.photos/id/237/850/450" alt="Orderly & Steady" />
           </figure>
           <ul class="carousel__text">
             <li>Vue.js Node.js Vite SCSS</li>
@@ -45,7 +45,7 @@
         </div>
         <div class="product product01">
           <figure>
-            <img src="https://picsum.photos/seed/picsum/850/450" alt="Chill Around" />
+            <img src="https://picsum.photos/id/236/850/450" alt="Chill Around" />
           </figure>
           <ul class="carousel__text">
             <li>Vue.js Node.js Vite SCSS</li>
@@ -75,7 +75,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('@/assets/images/ukiyo-e-parpe-texture.avif');
+  background-image: url('@/assets/images/ukiyo-e-parpe-texture.png');
   background-size: cover;
   opacity: 0.7;
   z-index: -1;
@@ -83,7 +83,7 @@
 .product__content {
   max-width: 1700px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 var(--containerPadding);
   position: relative;
   display: grid;
   grid-template-columns: 7fr 8.5fr;
@@ -104,24 +104,22 @@
   justify-content: space-between;
   align-items: end;
   padding-bottom: 8px;
-  border-bottom: 1px solid #d4426e;
+  border-bottom: 1px solid var(--SubColor02);
 }
 .product__fixed .product__title span {
-  font-size: 24px;
-  color: #dd551f;
-  font-family: 'Instrument Serif', serif;
-  letter-spacing: 0.15em;
+  font-size: var(--f24);
+  color: var(--SubColor);
+  letter-spacing: 0.1em;
 }
 .product__fixed .product__title h6 {
-  font-size: 20px;
-  color: #dd551f;
-  font-family: 'Instrument Sans';
+  font-size: var(--f20);
+  color: var(--SubColor);
+  font-family: var(--SFontSans);
   line-height: 1.2;
 }
 .product__fixed h2 {
-  font-size: 48px;
-  color: #aa3b0f;
-  font-family: 'Instrument Serif', serif;
+  font-size: var(--f46);
+  color: var(--MainColor);
   font-style: italic;
   padding-top: 12px;
 }
@@ -144,9 +142,9 @@
   display: flex;
   justify-content: space-between;
   gap: 25px;
-  font-size: 48px;
+  font-size: var(--f50);
+  color: var(--MainColor);
   line-height: 1.2;
-  color: #aa3b0f;
   animation: carousel-right 5s linear infinite;
 }
 @keyframes carousel-right {

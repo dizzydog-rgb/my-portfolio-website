@@ -1,6 +1,6 @@
 /* 全站通用的CSS */
 .app-wrapper {
-  background: url('../../assets/images/ukiyo-e-parpe-texture.avif') repeat top center;
+  background: url('../../assets/images/ukiyo-e-parpe-texture.png') repeat top right;
 }
 img {
   max-width: 100%;

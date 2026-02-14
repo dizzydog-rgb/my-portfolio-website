@@ -7,45 +7,39 @@ defineOptions({
 <template>
   <footer class="footer">
     <div class="footer-wrapper">
-      <div class="title">
-        <h6>CONTACT ME</h6>
-        <h2>聯絡我</h2>
-      </div>
-      <div class="link-group">
-        <div class="link"><a href="">Github</a></div>
-        <div class="link"><a href="">Email</a></div>
-        <div class="link"><a href="">Vocus</a></div>
-        <div class="link"><a href="">LinkedIn</a></div>
-      </div>
+      <p>
+        © 2026 Jackie Chen. All rights reserved.<br />
+        Based in Taiwan
+      </p>
     </div>
   </footer>
 </template>
 
 <style scoped>
-.footer{
+.footer {
   background: #f8f9fa;
+  position: relative;
+  z-index: 1;
+}
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('@/assets/images/ukiyo-e-parpe-texture.png');
+  background-size: cover;
+  opacity: 0.7;
+  z-index: -1;
 }
 .footer-wrapper {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 60px 60px 80px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  .title h6 {
-    font-size: 30px;
-    color: indigo;
-  }
-  .title h2 {
-    font-size: 60px;
-  }
-  .link-group {
-    display: flex;
-    flex-flow: column;
-    gap: 20px;
-    a {
-      font-size: 24px;
-      color: purple;
-    }
+  padding: 20px var(--containerPadding) 40px;
+  p {
+    font-size: 16px;
+    line-height: 2;
+    text-align: center;
+    color: #f093af;
   }
 }
 </style>

@@ -81,7 +81,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('@/assets/images/ukiyo-e-parpe-texture.avif');
+  background-image: url('@/assets/images/ukiyo-e-parpe-texture.png');
   background-size: cover;
   opacity: 0.7;
   z-index: -1;
@@ -89,17 +89,16 @@
 .contact__content {
   max-width: 1700px;
   margin: 0 auto;
-  padding: 70px 40px 120px;
+  padding: 70px var(--containerPadding) 120px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 5vw;
 }
 
 .contact__info h2 {
-  font-size: 120px;
+  font-size: var(--f120);
   letter-spacing: 0;
-  font-family: 'Instrument Serif', serif;
-  color: #aa3b0f;
+  color: var(--MainColor);
   white-space: nowrap;
   padding-bottom: 90px;
 }
@@ -119,7 +118,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 3px solid #dd551f;
+  border: 3px solid var(--SubColor);
   border-radius: 50px;
   padding: 12px 20px;
 }
@@ -135,17 +134,16 @@
   max-width: 24px;
 }
 .contact__info .link a span {
-  font-size: 20px;
-  color: #dd551f;
-  font-family: 'Instrument Sans';
+  font-size: var(--f20);
+  font-family: var(--SFontSans);
+  color: var(--SubColor);
 }
 .contact__info .current__focus {
   width: fit-content;
-  font-size: 32px;
-  color: #d4426e;
-  font-family: 'Instrument Serif', serif;
+  font-size: var(--f26);
+  color: var(--SubColor02);
   line-height: 1.5;
-  border-bottom: 2px solid #dd551f;
+  border-bottom: 2px solid var(--SubColor);
 }
 .item_a {
   grid-area: a;

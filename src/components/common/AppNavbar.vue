@@ -40,19 +40,16 @@ onUnmounted(() => {
   width: 100%;
   max-width: 100vw;
   z-index: 1000;
-
   background-color: transparent;
   backdrop-filter: blur(0);
   -webkit-backdrop-filter: blur(0);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
   transition: all 0.4s ease;
-
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   padding: 20px;
-  color: #aa3b0f;
+  color: var(--MainColor);
 }
 .navbar.navbar--scrolled {
   padding: 15px 40px;
@@ -62,7 +59,6 @@ onUnmounted(() => {
 }
 .navbar .logo {
   font-size: 32px;
-  font-family: 'Instrument Serif', serif;
   letter-spacing: 0.05em;
 }
 .links {
@@ -71,16 +67,28 @@ onUnmounted(() => {
   gap: 40px;
 }
 .links a {
-  font-size: 24px;
-  color: #aa3b0f;
+  font-size: var(--f24);
+  color: var(--MainColor);
   text-decoration: none;
-  font-family: 'Instrument Serif', serif;
   font-weight: 300;
 }
 
 /* 當前路徑的樣式 */
-.router-link-active {
-  color: #2ecc71;
-  font-weight: bold;
+.links a.is-active {
+  animation: text-glow 2.5s ease-in-out infinite;
+}
+@keyframes text-glow {
+  0%,
+  100% {
+    text-shadow: 0 0 0px rgba(255, 154, 113, 0);
+    opacity: 1;
+  }
+  50% {
+    text-shadow:
+      0 0 4px #ff9a71,
+      0 0 10px #ff9a71,
+      0 0 15px #ff9a71;
+    opacity: 0.8;
+  }
 }
 </style>
