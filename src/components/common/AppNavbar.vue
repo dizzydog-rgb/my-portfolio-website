@@ -22,7 +22,7 @@ onUnmounted(() => {
 
 <template>
   <nav class="navbar" :class="{ 'navbar--scrolled': isScrolled }">
-    <div class="logo">Jackie Chen</div>
+    <router-link to="/"><div class="logo">Jackie Chen</div></router-link>
     <div class="links">
       <router-link to="/">About</router-link>
       <router-link to="/library">Library</router-link>
