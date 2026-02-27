@@ -1,7 +1,58 @@
 /* 全站通用的CSS */
-.app-wrapper {
-  background: url('../../assets/images/ukiyo-e-parpe-texture.png') repeat top right;
-}
-img {
+.app-wrapper * {
+  box-sizing: border-box;
   max-width: 100%;
+  word-break: normal;
+}
+.app-wrapper {
+  max-width: 2000px;
+  width: 100%;
+  margin: 0 auto;
+  font-family: 'Microsoft JhengHei';
+  font-family: var(--SFont);
+  background: var(--bgColor);
+  font-size: var(--f18);
+  color: var(--FontColor);
+  font-weight: 400;
+  line-height: 200%;
+  letter-spacing: 1px;
+}
+.app-wrapper img {
+  width: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+.app-wrapper a {
+  text-decoration: none;
+  color: inherit;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.app-wrapper i {
+  font-style: normal;
+}
+.app-wrapper li {
+  list-style: none;
+}
+.app-wrapper ol {
+  padding: 0;
+  margin: 0;
+}
+.app-wrapper ul {
+  padding: 0;
+  margin: 0;
+}
+.app-wrapper h6,
+.app-wrapper h5,
+.app-wrapper h4,
+.app-wrapper h3,
+.app-wrapper h2,
+.app-wrapper figure,
+.app-wrapper p {
+  margin: 0;
+  font-size: inherit;
+}
+.app-wrapper section {
+  overflow: initial;
 }
