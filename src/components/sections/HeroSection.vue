@@ -20,7 +20,7 @@
 
       <div class="layer layer--waves">
         <img
-          v-for="n in 3"
+          v-for="n in 2"
           :key="'wave' + n"
           :src="getImg('wave', n)"
           :class="[`wave-img`, `wave-${n}`]"
@@ -84,9 +84,7 @@ onMounted(() => {
   gsap.set('.mtn-2', { yPercent: '100', xPercent: '50', opacity: 0 })
   gsap.set('.mtn-3', { yPercent: '100', xPercent: '0', opacity: 0 })
   gsap.set('.wave-1', { yPercent: '100', xPercent: '-20', opacity: 0 })
-  gsap.set('.wave-2', { yPercent: '0', xPercent: '-100', opacity: 1 })
-  gsap.set('.wave-3', { yPercent: '100', xPercent: '-100', opacity: 0 })
-  gsap.set('.wave-3', { yPercent: '100', xPercent: '-100', opacity: 0 })
+  gsap.set('.wave-2', { yPercent: '100', xPercent: '-100', opacity: 0 })
   gsap.set('.kabuki-1, .kabuki-3, .bijin-1, .bijin-3', {
     xPercent: '-80',
     opacity: 0,
@@ -207,34 +205,10 @@ onMounted(() => {
       },
       '<',
     )
-    .to(
-      '.wave-2',
-      {
-        opacity: 1,
-        duration: 4,
-        motionPath: {
-          path: [
-            { x: '0vw', y: 0 },
-            { x: '25vw', y: -20 },
-            { x: '50vw', y: -40 },
-            { x: '75vw', y: -200 },
-            { x: '100vw', y: -180 },
-            { x: '120vw', y: -80 },
-            { x: '150vw', y: -160 }, // 抵達終點
-          ],
-          curviness: 0.5, // 數值越高，轉彎越圓滑
-          type: 'soft',
-          autoRotate: false,
-        },
-        xPercent: -100, // 確保圖片屁股貼齊座標
-        ease: 'none',
-      },
-      '<',
-    )
-    .to('.wave-3', { yPercent: 0, xPercent: 0, opacity: 1, stagger: 0.2, duration: 2 }, '-=1')
+    .to('.wave-2', { yPercent: 0, xPercent: 0, opacity: 1, stagger: 0.2, duration: 2 }, '-=1')
     .to(['.mtn-1', '.mtn-3'], { opacity: 0, duration: 2, ease: 'power2.out' }, '>')
     .to('.wave-1', { opacity: 0, duration: 2, ease: 'power2.out' }, '>')
-    .to('.wave-3', { opacity: 0.8, duration: 2, ease: 'power2.out' }, '-=0.5')
+    .to('.wave-2', { opacity: 0.8, duration: 2, ease: 'power2.out' }, '-=0.5')
   // 3. 歌舞伎演員組
   tl.to(
     '.kabuki-img',
@@ -463,10 +437,6 @@ onMounted(() => {
   position: absolute;
   bottom: 0;
   left: 0;
-}
-.wave-2 {
-  max-width: 50vw;
-  transform: scaleX(-1);
 }
 
 .kabuki-img,

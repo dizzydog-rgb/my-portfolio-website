@@ -55,9 +55,12 @@
             </a>
           </div>
         </div>
-        <div class="current__focus item_f">
-          <h5>Current Focus: Astro.js, GSAP, et cetera.</h5>
-        </div>
+      </div>
+      <div class="animals">
+        <figure><img src="@/assets/images/choju-1.png" alt="" /></figure>
+        <figure><img src="@/assets/images/choju-2.png" alt="" /></figure>
+        <figure><img src="@/assets/images/choju-3.png" alt="" /></figure>
+        <figure><img src="@/assets/images/choju-4.png" alt="" /></figure>
       </div>
     </div>
   </section>
@@ -93,6 +96,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 5vw;
+  position: relative;
 }
 
 .contact__info h2 {
@@ -112,7 +116,7 @@
     'c d'
     'e .'
     'f f';
-  gap: 40px 0;
+  gap: 40px 20px;
 }
 .contact__info .link a {
   display: flex;
@@ -138,13 +142,73 @@
   font-family: var(--SFontSans);
   color: var(--SubColor);
 }
-.contact__info .current__focus {
-  width: fit-content;
-  font-size: var(--f26);
-  color: var(--SubColor02);
-  line-height: 1.5;
-  border-bottom: 2px solid var(--SubColor);
+
+.contact__content .animals {
+  display: flex;
+  gap: 20px;
+  position: absolute;
+  bottom: 60px;
+  left: 20vw;
 }
+.contact__content .animals figure {
+  max-width: 10vw;
+  position: relative;
+  z-index: 1;
+}
+.contact__content .animals figure::before {
+  content: '';
+  width: 100%;
+  height: 15px;
+  background: var(--MainColor);
+  opacity: 0.5;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -4px;
+  z-index: -1;
+}
+@keyframes jump-1 {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px) rotate(-2deg);
+  }
+}
+@keyframes jump-2 {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px) rotate(2deg);
+  }
+}
+.contact__content .animals figure:nth-of-type(1) {
+  position: relative;
+  bottom: 15vw;
+}
+.contact__content .animals figure:nth-of-type(1) img {
+  animation: jump-1 1.5s infinite ease-in-out;
+}
+.contact__content .animals figure:nth-of-type(2) {
+  position: relative;
+  bottom: 10vw;
+}
+.contact__content .animals figure:nth-of-type(2) img {
+  animation: jump-2 1.8s infinite ease-in-out;
+}
+.contact__content .animals figure:nth-of-type(3) {
+  position: relative;
+  bottom: 5vw;
+}
+.contact__content .animals figure:nth-of-type(3) img {
+  animation: jump-1 2s infinite ease-in-out;
+}
+.contact__content .animals figure:nth-of-type(4) img {
+  animation: jump-2 2.5s infinite ease-in-out;
+}
+
 .item_a {
   grid-area: a;
 }
