@@ -64,6 +64,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin'
 import BaseButton from '../base/BaseButton.vue'
 
+const goProject = () => {
+  console.log('啟動信箱')
+  const user = 'yisheng.chen.jackie'
+  const domain = 'gmail.com'
+  window.location.href = `mailto:${user}@${domain}`
+}
+
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin)
 
 const heroRef = ref(null)
@@ -84,7 +91,7 @@ onMounted(() => {
   gsap.set('.mtn-2', { yPercent: '100', xPercent: '50', opacity: 0 })
   gsap.set('.mtn-3', { yPercent: '100', xPercent: '0', opacity: 0 })
   gsap.set('.wave-1', { yPercent: '100', xPercent: '-20', opacity: 0 })
-  gsap.set('.wave-2', { yPercent: '100', xPercent: '-100', opacity: 0 })
+  gsap.set('.wave-2', { yPercent: '100', xPercent: '-50', opacity: 0 })
   gsap.set('.kabuki-1, .kabuki-3, .bijin-1, .bijin-3', {
     xPercent: '-80',
     opacity: 0,
@@ -198,7 +205,7 @@ onMounted(() => {
       '.wave-1',
       {
         y: -40, // 向上跳動的高度
-        duration: 1, // 跳動一次的速度
+        duration: 2, // 跳動一次的速度
         repeat: 4, // 根據總時長重複次數 (4 / 0.5 = 8次)
         yoyo: true, // 往返運動
         ease: 'sine.inOut',

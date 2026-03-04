@@ -9,51 +9,36 @@
       <div class="contact__info">
         <h2>CONTACT ME</h2>
         <div class="link__group">
-          <div class="link item_a">
-            <a href="">
-              <div>
-                <img src="@/assets/icons/mail-icon.svg" alt="" />
-                <span>Email: yisheng.chen.jackie@gmail.com</span>
-              </div>
-              <img src="@/assets/icons/arrow-outward.svg" alt="" />
-            </a>
-          </div>
-          <div class="link item_b">
-            <a href="">
-              <div>
-                <img src="@/assets/icons/github-icon.svg" alt="" />
-                <span>Github</span>
-              </div>
-              <img src="@/assets/icons/arrow-outward.svg" alt="" />
-            </a>
-          </div>
-          <div class="link item_c">
-            <a href="">
-              <div>
-                <img src="@/assets/icons/codepen-icon.svg" alt="" />
-                <span>CodePen</span>
-              </div>
-              <img src="@/assets/icons/arrow-outward.svg" alt="" />
-            </a>
-          </div>
-          <div class="link item_d">
-            <a href="">
-              <div>
-                <img src="@/assets/icons/vocus-icon.svg" alt="" />
-                <span>BLOG(VOCUS)</span>
-              </div>
-              <img src="@/assets/icons/arrow-outward.svg" alt="" />
-            </a>
-          </div>
-          <div class="link item_e">
-            <a href="">
-              <div>
-                <img src="@/assets/icons/linkedin-icon.svg" alt="" />
-                <span>LinkedIn</span>
-              </div>
-              <img src="@/assets/icons/arrow-outward.svg" alt="" />
-            </a>
-          </div>
+          <SocialLink
+            class="link item_a"
+            href="mailto:yisheng.chen.jackie@gmail.com"
+            label="Email: yisheng.chen.jackie@gmail.com"
+            iconName="mail-icon"
+          />
+          <SocialLink
+            class="link item_b"
+            href="https://github.com/dizzydog-rgb"
+            label="Github"
+            iconName="github-icon"
+          />
+          <SocialLink
+            class="link item_c"
+            href="https://codepen.io/collection/zzGkOR"
+            label="CodePen"
+            iconName="codepen-icon"
+          />
+          <SocialLink
+            class="link item_d"
+            href="https://vocus.cc/salon/dizzydog"
+            label="BLOG(VOCUS)"
+            iconName="vocus-icon"
+          />
+          <SocialLink
+            class="link item_e"
+            href="www.linkedin.com/in/yi-sheng-chen-jackie"
+            label="LinkedIn"
+            iconName="linkedin-icon"
+          />
         </div>
       </div>
       <div class="animals">
@@ -68,7 +53,7 @@
 
 <script setup>
 // import { onMounted, ref } from 'vue'
-// import gsap from 'gsap'
+import SocialLink from '../base/SocialLink.vue'
 </script>
 
 <style scoped>
@@ -118,29 +103,8 @@
     'f f';
   gap: 40px 20px;
 }
-.contact__info .link a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 3px solid var(--SubColor);
-  border-radius: 50px;
-  padding: 12px 20px;
-}
 .contact__info .link:not(.item_a) {
   max-width: 280px;
-}
-.contact__info .link a > div {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-.contact__info .link a > div img {
-  max-width: 24px;
-}
-.contact__info .link a span {
-  font-size: var(--f20);
-  font-family: var(--SFontSans);
-  color: var(--SubColor);
 }
 
 .contact__content .animals {

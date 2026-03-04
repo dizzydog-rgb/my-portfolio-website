@@ -25,27 +25,39 @@
         </div>
       </div>
       <div class="product__img">
-        <div class="product product01">
+        <div class="product__item">
           <figure>
             <img src="https://picsum.photos/id/23/850/450" alt="My portfolio website" />
+            <figcaption>
+              Supported marketing efforts as a generalist designer, contributing to design during
+              their second funding round which raised over $2M.
+            </figcaption>
           </figure>
           <ul class="carousel__text">
             <li><span>Vue.js</span><span>Node.js</span><span>Vite</span>SCSS<span></span></li>
             <li><span>Vue.js</span><span>Node.js</span><span>Vite</span>SCSS<span></span></li>
           </ul>
         </div>
-        <div class="product product01">
+        <div class="product__item">
           <figure>
             <img src="https://picsum.photos/id/237/850/450" alt="Orderly & Steady" />
+            <figcaption>
+              Supported marketing efforts as a generalist designer, contributing to design during
+              their second funding round which raised over $2M.
+            </figcaption>
           </figure>
           <ul class="carousel__text">
             <li>Vue.js Node.js Vite SCSS</li>
             <li>Vue.js Node.js Vite SCSS</li>
           </ul>
         </div>
-        <div class="product product01">
+        <div class="product__item">
           <figure>
             <img src="https://picsum.photos/id/236/850/450" alt="Chill Around" />
+            <figcaption>
+              Supported marketing efforts as a generalist designer, contributing to design during
+              their second funding round which raised over $2M.
+            </figcaption>
           </figure>
           <ul class="carousel__text">
             <li>Vue.js Node.js Vite SCSS</li>
@@ -58,8 +70,69 @@
 </template>
 
 <script setup>
-// import { onMounted, ref } from 'vue'
-// import gsap from 'gsap'
+import { onMounted } from 'vue'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
+
+onMounted(() => {
+  const titles = gsap.utils.toArray('.product__title')
+  const images = gsap.utils.toArray('.product__item')
+
+  if (titles.length === 0 || images.length === 0) return
+
+  images.forEach((img, i) => {
+    if (titles.length > 0 && images.length > 0) {
+      ScrollTrigger.create({
+        trigger: img,
+        start: 'top 60%', // 當圖片頂部到達視窗下方 60%
+        end: 'bottom 40%', // 當圖片底部離開視窗上方 40%
+        onToggle: (self) => {
+          if (self.isActive) {
+            // 如果有舊的在亮，先關掉
+            titles.forEach((t) => deactivateTitle(t))
+            activateTitle(titles[i], i)
+          } else {
+            deactivateTitle(titles[i])
+          }
+        },
+      })
+    }
+  })
+})
+
+// --- 活動樣式定義 ---
+function activateTitle(el) {
+  // 1. 透明度切換
+  gsap.to(el, {
+    opacity: 1,
+    duration: 0.8,
+    overwrite: 'auto',
+  })
+
+  // 2. 呼吸發光效果
+  gsap.to(el, {
+    textShadow: '0 0 10px #dd551f33, 0 0 15px #dd551f4D , 0 0 20px #dd551f80',
+    duration: 1.5,
+    repeat: -1,
+    yoyo: true,
+    ease: 'sine.inOut',
+  })
+}
+
+function deactivateTitle(el) {
+  // 1. 恢復半透明
+  gsap.to(el, {
+    opacity: 0.5,
+    textShadow: '0 0 0px rgba(255,255,255,0)', // 消除發光
+    duration: 0.5,
+    overwrite: 'auto',
+  })
+
+  // 2. 停止該元素上的所有呼吸動畫
+  gsap.killTweensOf(el, 'textShadow')
+}
 </script>
 
 <style scoped>
@@ -83,7 +156,7 @@
 .product__content {
   max-width: 1700px;
   margin: 0 auto;
-  padding: 0 var(--containerPadding);
+  padding: 0 var(--containerPadding) 120px;
   position: relative;
   display: grid;
   grid-template-columns: 7fr 8.5fr;
@@ -98,6 +171,11 @@
   flex-flow: column;
   justify-content: start;
   gap: 70px;
+}
+.product__fixed .product__title {
+  opacity: 0.5;
+  text-shadow: 0 0 0px transparent;
+  will-change: opacity, text-shadow;
 }
 .product__fixed .product__title > div {
   display: flex;
@@ -130,14 +208,18 @@
   gap: 200px;
   position: relative;
 }
-.product__img .carousel__text {
+.product__img .product__item figcaption {
+  padding: 20px 15px 0;
+  color: var(--MainColor);
+}
+.product__img .product__item .carousel__text {
   width: 100%;
   position: absolute;
-  bottom: 60px;
+  top: 50%;
   display: flex;
   overflow: hidden;
 }
-.product__img .carousel__text li {
+.product__img .product__item .carousel__text li {
   flex: 0 0 100%;
   display: flex;
   justify-content: space-between;
