@@ -191,7 +191,7 @@ onMounted(() => {
       scrub: 1.5,
       pin: true,
       pinSpacing: true,
-      markers: true,
+      markers: false,
     },
   })
 
