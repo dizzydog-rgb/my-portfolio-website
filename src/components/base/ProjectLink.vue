@@ -2,7 +2,7 @@
   <div class="social-link">
     <a :href="href" target="_blank">
       <div>
-        <img :src="iconSrc" :alt="label" />
+        <img v-if="iconName" :src="iconSrc" :alt="label" />
         <span>
           <span class="label-inner">{{ label }}</span>
         </span>
@@ -28,7 +28,7 @@ const props = defineProps({
   // 傳入圖示名稱，例如 "github-icon"
   iconName: {
     type: String,
-    required: true,
+    required: false,
   },
 })
 
@@ -40,45 +40,47 @@ const iconSrc = computed(() => {
 
 <style scoped>
 .social-link a {
+  max-width: 140px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  justify-content: start;
+  gap: 6px;
   text-decoration: none;
-  border: 3px solid var(--SubColor);
-  border-radius: 50px;
-  padding: 12px 20px;
+  padding: 12px 6px;
 }
 .social-link a > div {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 }
-.social-link a > div img {
-  max-width: 24px;
+.social-link a > img {
+  max-width: 16px;
+  position: relative;
+  top: 2px;
 }
 .social-link a span {
-  font-size: var(--f20);
+  font-size: 14px;
+  line-height: 1.2;
   font-family: var(--SFontSans);
   color: var(--SubColor);
 }
 
-.social-link a,
-.social-link a span,
 .social-link a img {
-  transition: 0.5s;
-}
-.social-link a:hover {
-  background: var(--MainColor);
-  border-color: var(--MainColor);
-}
-.social-link a:hover span {
-  color: #ffffff;
-}
-.social-link a:hover img {
-  filter: brightness(0) invert(1);
+  transition: 0.2s;
 }
 .social-link a:hover > img {
   transform: rotate(45deg);
+  animation: arrow-move 1s 0.2s infinite;
+}
+@keyframes arrow-move {
+  0% {
+    transform: translateX(0) rotate(45deg);
+  }
+  50% {
+    transform: translateX(4px) rotate(45deg);
+  }
+  100% {
+    transform: translateX(0) rotate(45deg);
+  }
 }
 </style>

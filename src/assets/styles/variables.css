@@ -60,6 +60,7 @@
 }
 @media (max-width: 1024px) {
   :root {
+    --f120: 108px;
     --f96: 78px;
     --f80: 70px;
     --f70: 60px;
@@ -84,6 +85,7 @@
 
 @media screen and (max-width: 768px) {
   :root {
+    --f120: 90px;
     --f96: 64px;
     --f80: 58px;
     --f70: 48px;
@@ -110,6 +112,7 @@
 
 @media (max-width: 480px) {
   :root {
+    --f120: 72px;
     --f96: 56px;
     --f80: 50px;
     --f70: 40px;
@@ -138,6 +141,7 @@
 
 @media (max-width: 375px) {
   :root {
+    --f120: 50px;
     --f96: 48px;
     --f80: 40px;
     --f70: 36px;

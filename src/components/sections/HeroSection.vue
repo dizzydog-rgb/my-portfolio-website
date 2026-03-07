@@ -11,7 +11,7 @@
     <section class="ukiyo-stage" ref="stageRef">
       <div class="layer layer--mountains">
         <img
-          v-for="n in 4"
+          v-for="n in 3"
           :key="'mtn' + n"
           :src="getImg('mountain', n)"
           :class="[`mtn-img`, `mtn-${n}`]"
@@ -86,7 +86,6 @@ const getImg = (name, n) => {
 }
 
 onMounted(() => {
-  gsap.set('.hero__title', { yPercent: '20', xPercent: '0', opacity: 1 })
   gsap.set('.mtn-1', { yPercent: '100', xPercent: '0', opacity: 0 })
   gsap.set('.mtn-2', { yPercent: '100', xPercent: '50', opacity: 0 })
   gsap.set('.mtn-3', { yPercent: '100', xPercent: '0', opacity: 0 })
@@ -118,18 +117,22 @@ onMounted(() => {
   const rows = 4
   const gridPoints = []
 
-  // 定義安全區域與邊距
-  const marginX = 200
-  const marginTop = 120
-  const marginBottom = 150
+  // 響應式 - 定義安全區域與邊距
+  const isMobile = window.innerWidth < 768
+  const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024
+
+  const marginX = isMobile ? 75 : isTablet ? 100 : 200
+  const marginTop = isMobile ? 100 : 120
+  const marginBottom = isMobile ? 100 : 150
+
   const monsterWidthOffset = window.innerWidth * 0.15 // 預留妖怪寬度
   const monsterHeightOffset = window.innerHeight * 0.15 // 預留妖怪高度
 
   const gridWidth = window.innerWidth - marginX * 2 - monsterWidthOffset
   const gridHeight = window.innerHeight - marginTop - marginBottom - monsterHeightOffset
 
-  const spacingX = gridWidth / (columns - 1)
-  const spacingY = gridHeight / (rows - 1)
+  const spacingX = gridWidth / Math.max(columns - 1, 1)
+  const spacingY = gridHeight / Math.max(rows - 1, 1)
 
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < columns; c++) {
@@ -160,7 +163,7 @@ onMounted(() => {
     }
   }
 
-  // 紅富士先出現
+  // 紅富士、文字、按鈕先出現
   gsap.to('.mtn-1', {
     yPercent: 0,
     opacity: 1,
@@ -168,12 +171,17 @@ onMounted(() => {
     ease: 'power2.out',
   })
 
-  gsap.to('.hero__title', {
-    yPercent: 0,
-    opacity: 0.7,
-    duration: 2,
-    ease: 'power2.out',
-  })
+  //animate ".box" from an opacity of 0 to an opacity of 0.5
+  gsap.fromTo(
+    '.hero__title',
+    { yPercent: 20, opacity: 1 },
+    { yPercent: 0, opacity: 0.7, duration: 2, ease: 'power2.out' },
+  )
+  gsap.fromTo(
+    '.hero__button',
+    { xPercent: -100 },
+    { xPercent: 0, duration: 1.5, ease: 'bounce.out' },
+  )
 
   const tl = gsap.timeline({
     scrollTrigger: {
@@ -188,25 +196,23 @@ onMounted(() => {
   })
 
   // 1. 富士山組
-  tl.to(
-    '.mtn-2',
-    { yPercent: 0, xPercent: 0, opacity: 1, duration: 2, ease: 'power2.out' },
-    '-=1.5',
-  )
+  // .set 讓回溯時紅富士也能出現
+  tl.set('.mtn-1', { opacity: 1, yPercent: 0 }, 0)
+    .to('.mtn-2', { yPercent: 0, xPercent: 0, opacity: 1, duration: 2, ease: 'power2.out' })
     .to(
       '.mtn-3',
       { yPercent: 0, xPercent: 0, opacity: 1, duration: 2, ease: 'power2.out' },
-      '-=0.5',
+      '+=0.5',
     )
     .to('.mtn-2', { opacity: 0, duration: 2, ease: 'power2.out' }, '-=1.5')
-    // 2. 海浪與船組
+    // 2. 海浪組
     .to('.wave-1', { yPercent: 30, xPercent: 0, opacity: 1, stagger: 0.2, duration: 1 }, '-=0.5')
     .to(
       '.wave-1',
       {
         y: -40, // 向上跳動的高度
         duration: 2, // 跳動一次的速度
-        repeat: 4, // 根據總時長重複次數 (4 / 0.5 = 8次)
+        repeat: 3, // 根據總時長重複次數 (3 / 0.5 = 6次)
         yoyo: true, // 往返運動
         ease: 'sine.inOut',
       },
@@ -299,6 +305,7 @@ onMounted(() => {
     },
     '+=0.2',
   )
+  tl.to({}, { duration: 2 })
   tl.to(
     '.monster-img',
     {
@@ -378,6 +385,7 @@ onMounted(() => {
   gap: 10px;
   border-radius: 50px;
   padding: 10px 30px;
+  transition: unset;
 }
 .hero__button img {
   color: var(--MainColor);
@@ -472,5 +480,25 @@ onMounted(() => {
   width: 100%;
   height: auto;
   display: block;
+}
+
+@media (max-width: 1440px) {
+}
+@media (max-width: 1024px) {
+  .monster-wrapper {
+    width: 25%;
+    max-width: 25%;
+  }
+  .monster-wrapper:nth-child(n + 7) {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .monster-wrapper {
+    width: 40%;
+    max-width: 40%;
+  }
+}
+@media (max-width: 480px) {
 }
 </style>

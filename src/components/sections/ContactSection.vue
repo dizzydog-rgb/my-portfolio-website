@@ -20,7 +20,13 @@
             href="https://github.com/dizzydog-rgb"
             label="Github"
             iconName="github-icon"
-          />
+          >
+            <div class="github_status">
+              <img src="@/assets/icons/github-icon-green.svg" alt="github status" />
+              <p>{{ lastCommitMessage }}</p>
+            </div>
+          </SocialLink>
+
           <SocialLink
             class="link item_c"
             href="https://codepen.io/collection/zzGkOR"
@@ -52,8 +58,36 @@
 </template>
 
 <script setup>
-// import { onMounted, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import SocialLink from '../base/SocialLink.vue'
+
+const lastCommitMessage = ref('Loading...')
+const githubUser = 'dizzydog-rgb'
+const fetchLastCommit = async () => {
+  try {
+    const response = await fetch(`https://api.github.com/users/${githubUser}/events/public`)
+    const events = await response.json()
+
+    const pushEvent = events.find((event) => event.type === 'PushEvent')
+
+    if (pushEvent && pushEvent.payload.head) {
+      const repoUrl = pushEvent.repo.url
+      const commitResp = await fetch(`${repoUrl}/commits/${pushEvent.payload.head}`)
+      const commitData = await commitResp.json()
+      const message = commitData.commit.message
+      lastCommitMessage.value = message.length > 35 ? message.substring(0, 35) + '...' : message
+    } else {
+      lastCommitMessage.value = 'No recent activity'
+    }
+  } catch (error) {
+    console.error('Github API Error:', error)
+    lastCommitMessage.value = 'Failed to load'
+  }
+}
+
+onMounted(() => {
+  fetchLastCommit()
+})
 </script>
 
 <style scoped>
@@ -86,6 +120,7 @@ import SocialLink from '../base/SocialLink.vue'
 
 .contact__info h2 {
   font-size: var(--f120);
+  line-height: 1;
   letter-spacing: 0;
   color: var(--MainColor);
   white-space: nowrap;
@@ -99,12 +134,45 @@ import SocialLink from '../base/SocialLink.vue'
     'a a'
     'b .'
     'c d'
-    'e .'
-    'f f';
+    'e .';
   gap: 40px 20px;
 }
 .contact__info .link:not(.item_a) {
   max-width: 280px;
+}
+
+.item_b {
+  position: relative;
+}
+.github_status {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: absolute;
+  left: 110%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.github_status img {
+  max-width: 24px;
+  animation: pulse 2s infinite;
+}
+.github_status p {
+  font-size: var(--f16);
+  color: #2da44e;
+  line-height: 1.5;
+  flex-shrink: 0;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .contact__content .animals {
@@ -113,6 +181,7 @@ import SocialLink from '../base/SocialLink.vue'
   position: absolute;
   bottom: 60px;
   left: 20vw;
+  pointer-events: none;
 }
 .contact__content .animals figure {
   max-width: 10vw;
@@ -187,5 +256,101 @@ import SocialLink from '../base/SocialLink.vue'
 }
 .item_e {
   grid-area: e;
+}
+
+@media (max-width: 1440px) {
+  .contact__content .animals {
+    bottom: 10px;
+    left: 10vw;
+  }
+}
+@media (max-width: 1024px) {
+  .contact__info h2 {
+    padding-bottom: 70px;
+  }
+  .contact__content {
+    grid-template-columns: 1fr;
+  }
+  .contact_img {
+    grid-row: 2 / 3;
+    max-height: 400px;
+    overflow: hidden;
+  }
+  .contact_img img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  .contact__content .animals {
+    left: initial;
+    right: 60px;
+    bottom: 20px;
+  }
+  .contact__content .animals figure {
+    max-width: 15vw;
+  }
+}
+@media (max-width: 768px) {
+  .contact__info h2 {
+    padding-bottom: 50px;
+  }
+  .contact__content {
+    gap: 60px;
+  }
+  .contact__info .link__group {
+    grid-template-areas:
+      'a a'
+      'b b'
+      '. .'
+      'c c'
+      'd d'
+      'e e';
+    gap: 30px 0;
+  }
+  .github_status {
+    left: 20px;
+    top: 150%;
+  }
+  .item_a :deep(span) {
+    word-break: break-all;
+    text-indent: -3.5em;
+    margin-left: 3.5em;
+  }
+}
+@media (max-width: 480px) {
+  .contact__content {
+    padding: 50px var(--containerPadding) 90px;
+    gap: 40px;
+  }
+  .contact__info h2 {
+    padding-bottom: 30px;
+  }
+  .contact__info .link__group {
+    gap: 25px 0;
+  }
+  .github_status {
+    top: 140%;
+  }
+
+  .contact__info .link {
+    max-width: 280px;
+  }
+  .item_a :deep(.label-inner) {
+    display: none;
+  }
+  .item_a :deep(span::before) {
+    content: 'Email';
+    font-size: var(--f20);
+    color: var(--SubColor);
+    font-family: var(--SFontSans);
+  }
+
+  .contact__content .animals {
+    left: initial;
+    right: 15px;
+  }
+  .contact__content .animals figure {
+    max-width: 20vw;
+  }
 }
 </style>

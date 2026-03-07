@@ -58,8 +58,9 @@ onUnmounted(() => {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 .navbar .logo {
-  font-size: 32px;
+  font-size: var(--f32);
   letter-spacing: 0.05em;
+  white-space: nowrap;
 }
 .links {
   display: flex;
@@ -89,6 +90,15 @@ onUnmounted(() => {
       0 0 10px #ff9a71,
       0 0 15px #ff9a71;
     opacity: 0.8;
+  }
+}
+
+@media (max-width: 480px) {
+  .links {
+    gap: 20px;
+  }
+  .navbar.navbar--scrolled {
+    padding: 15px 25px;
   }
 }
 </style>
