@@ -23,6 +23,7 @@
           v-for="n in 2"
           :key="'wave' + n"
           :src="getImg('wave', n)"
+          loading="lazy"
           :class="[`wave-img`, `wave-${n}`]"
         />
       </div>
@@ -33,6 +34,7 @@
             v-for="n in 4"
             :key="'ppl' + n"
             :src="getImg('kabuki', n)"
+            loading="lazy"
             :class="[`kabuki-img`, `kabuki-${n}`]"
           />
         </div>
@@ -41,6 +43,7 @@
             v-for="n in 5"
             :key="'ppl' + n"
             :src="getImg('bijin', n)"
+            loading="lazy"
             :class="[`bijin-img`, `bijin-${n}`]"
           />
         </div>
@@ -50,7 +53,11 @@
 
       <div class="layer layer--monsters">
         <div v-for="n in 10" :key="'mon' + n" class="monster-wrapper">
-          <img :src="getImg('monster', n)" :class="[`monster-img`, `monster-${n}`]" />
+          <img
+            :src="getImg('monster', n)"
+            loading="lazy"
+            :class="[`monster-img`, `monster-${n}`]"
+          />
         </div>
       </div>
     </section>
