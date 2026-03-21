@@ -3,9 +3,11 @@
     <section class="hero" ref="heroRef">
       <div class="hero__content">
         <h1 class="hero__title">FRONTEND <br />DEVELOPER</h1>
-        <BaseButton class="hero__button" @click="goProject"
-          ><span>CONTACT ME</span><img src="@/assets/icons/arrow-top-right.svg" alt="arrow"
-        /></BaseButton>
+        <div class="button__container">
+          <BaseButton class="hero__button" @click="goProject"
+            ><span>CONTACT ME</span><img src="@/assets/icons/arrow-top-right.svg" alt="arrow"
+          /></BaseButton>
+        </div>
       </div>
     </section>
     <section class="ukiyo-stage" ref="stageRef">
@@ -65,11 +67,18 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin'
 import BaseButton from '../base/BaseButton.vue'
+
+const props = defineProps({
+  isStart: {
+    type: Boolean,
+    default: false,
+  },
+})
 
 const goProject = () => {
   const user = 'yisheng.chen.jackie'
@@ -177,24 +186,26 @@ onMounted(async () => {
     }
   }
 
-  // 紅富士、文字、按鈕先出現
-  gsap.to('.mtn-1', {
-    yPercent: 0,
-    opacity: 1,
-    duration: 2,
-    ease: 'power2.out',
-  })
-
-  //animate ".box" from an opacity of 0 to an opacity of 0.5
-  gsap.fromTo(
-    '.hero__title',
-    { yPercent: 20, opacity: 1 },
-    { yPercent: 0, opacity: 0.7, duration: 2, ease: 'power2.out' },
-  )
-  gsap.fromTo(
-    '.hero__button',
-    { xPercent: -100 },
-    { xPercent: 0, duration: 1.5, ease: 'bounce.out' },
+  // 按鈕和標題的載入動畫
+  const playEntranceAnim = () => {
+    gsap.fromTo(
+      '.hero__title',
+      { yPercent: 20, opacity: 0 }, // 初始 opacity 設為 0
+      { yPercent: 0, opacity: 0.7, duration: 2, ease: 'power2.out' },
+    )
+    gsap.fromTo(
+      '.button__container',
+      { xPercent: -100 },
+      { xPercent: 0, duration: 2, ease: 'bounce.out' },
+    )
+  }
+  watch(
+    () => props.isStart,
+    (newVal) => {
+      if (newVal) {
+        playEntranceAnim()
+      }
+    },
   )
 
   const tl = gsap.timeline({
@@ -202,6 +213,7 @@ onMounted(async () => {
       trigger: '.hero-wrapper',
       start: 'top top',
       end: '+=6000', // 增加捲動長度，讓動畫慢慢跑
+      refreshPriority: 1,
       scrub: 1.5,
       pin: true,
       pinSpacing: true,
@@ -426,23 +438,25 @@ const waitForImages = () => {
   padding-left: var(--containerPadding);
   padding-bottom: 40px;
 }
+.button__container {
+  position: absolute;
+  right: var(--containerPadding);
+  top: 120px;
+  z-index: 50;
+}
 .hero__button {
   font-size: var(--f40);
   color: var(--MainColor);
   font-family: var(--SFontSans);
   background: transparent;
   opacity: 1;
-  position: absolute;
-  right: var(--containerPadding);
-  top: 120px;
-  z-index: 50;
   box-shadow: none;
   display: flex;
   align-items: center;
   gap: 10px;
   border-radius: 50px;
   padding: 10px 30px;
-  transition: 0.5s ease;
+  transition: 0.5s;
 }
 .hero__button img {
   color: var(--MainColor);

@@ -1,6 +1,7 @@
 <script setup>
 import { ref, watch, onMounted } from 'vue'
 import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import AppLoader from '../components/common/AppLoader.vue'
 import HeroSection from '../components/sections/HeroSection.vue'
 import ProductSection from '../components/sections/ProductSection.vue'
@@ -8,6 +9,11 @@ import ContactSection from '../components/sections/ContactSection.vue'
 
 const isLoading = ref(true)
 const isHeroReady = ref(false) // 傳給 Loader 的圖片載入是否完成的訊號
+const startHeroAnim = ref(false)
+
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual'
+}
 onMounted(() => {
   window.scrollTo({
     top: 0,
@@ -24,6 +30,13 @@ const handleHeroLoaded = () => {
 // 處理 AppLoader 讓進度條跑完 100% 動畫
 const handleLoaderFinished = () => {
   isLoading.value = false
+  startHeroAnim.value = true
+
+  // 核心：給瀏覽器一點時間渲染 DOM，然後強制 GSAP 重新計算所有位置
+  setTimeout(() => {
+    ScrollTrigger.refresh()
+    console.log('所有位置已重新計算')
+  }, 100)
 }
 
 // 鎖定滾動：載入時禁止使用者亂滾
@@ -57,7 +70,7 @@ const onLoaderLeave = (el, done) => {
     </Transition>
 
     <div :class="{ 'is-loading-content': isLoading }">
-      <HeroSection @heroImagesLoaded="handleHeroLoaded" />
+      <HeroSection :is-start="startHeroAnim" @heroImagesLoaded="handleHeroLoaded" />
       <ProductSection />
       <ContactSection />
     </div>

@@ -46,9 +46,8 @@
             </div>
           </figure>
           <ul class="carousel__text">
-            <li><span>Vue.js</span><span>Node.js</span><span>Vite</span><span>SCSS</span></li>
-            <li><span>Vue.js</span><span>Node.js</span><span>Vite</span><span>SCSS</span></li>
-            <li><span>Vue.js</span><span>Node.js</span><span>Vite</span><span>SCSS</span></li>
+            <li><span>Vue.js</span><span>GSAP</span> <span>RWD</span><span>SCSS</span></li>
+            <li><span>Vue.js</span><span>GSAP</span> <span>RWD</span><span>SCSS</span></li>
           </ul>
           <div class="product__title__mobile">
             <div>
@@ -57,8 +56,10 @@
             </div>
             <h2>Jackie's portfolio website</h2>
             <p>
-              Supported marketing efforts as a generalist designer, contributing to design during
-              their second funding round which raised over $2M.
+              A responsive product showcase component displaying three portfolio projects with
+              scroll-triggered animations. Features a sticky left sidebar with project titles that
+              glow when their corresponding images enter the viewport, plus auto-scrolling tech
+              stack carousels and adaptive mobile layouts.
             </p>
           </div>
         </div>
@@ -66,8 +67,9 @@
           <figure>
             <img src="https://picsum.photos/id/237/850/450" alt="Orderly & Steady" />
             <figcaption>
-              Supported marketing efforts as a generalist designer, contributing to design during
-              their second funding round which raised over $2M.
+              A Vue/Node.js/MySQL web app using AI to classify food (Protein, Starch, Veggies). It
+              scores diets based on optimal intake order (Veggies → Protein → Starch) to regulate
+              blood sugar, with full Vitest coverage for reliability.
             </figcaption>
             <div class="link__group">
               <ProjectLink
@@ -83,8 +85,13 @@
             </div>
           </figure>
           <ul class="carousel__text">
-            <li><span>Vue.js</span> <span>Node.js</span> <span>Vite</span> <span>SCSS</span></li>
-            <li><span>Vue.js</span> <span>Node.js</span> <span>Vite</span> <span>SCSS</span></li>
+            <li>
+              <span>Vue.js</span> <span>Node.js</span> <span>MySQL</span
+              ><span style="min-width: 160px">AI-Driven</span>
+            </li>
+            <li>
+              <span>Vue.js</span> <span>Node.js</span> <span>MySQL</span><span>AI-Driven</span>
+            </li>
           </ul>
           <div class="product__title__mobile">
             <div>
@@ -93,8 +100,10 @@
             </div>
             <h2>Orderly & Steady</h2>
             <p>
-              Supported marketing efforts as a generalist designer, contributing to design during
-              their second funding round which raised over $2M.
+              A responsive product showcase component displaying three portfolio projects with
+              scroll-triggered animations. Features a sticky left sidebar with project titles that
+              glow when their corresponding images enter the viewport, plus auto-scrolling tech
+              stack carousels and adaptive mobile layouts.
             </p>
           </div>
         </div>
@@ -102,8 +111,10 @@
           <figure>
             <img src="https://picsum.photos/id/236/850/450" alt="Chill Around" />
             <figcaption>
-              Supported marketing efforts as a generalist designer, contributing to design during
-              their second funding round which raised over $2M.
+              Chill Around is a tourism platform enabling users to explore attractions and plan
+              trips. It features an interactive UI for discovering local spots, categories, and
+              detailed travel information, providing a seamless experience for travelers to organize
+              their itineraries efficiently.
             </figcaption>
             <div class="link__group">
               <ProjectLink
@@ -119,8 +130,12 @@
             </div>
           </figure>
           <ul class="carousel__text">
-            <li><span>Vue.js</span> <span>Node.js</span> <span>Vite</span> <span>SCSS</span></li>
-            <li><span>Vue.js</span> <span>Node.js</span> <span>Vite</span> <span>SCSS</span></li>
+            <li>
+              <span>Vue.js</span> <span>Node.js</span> <span>RWD</span> <span>RESTful API</span>
+            </li>
+            <li>
+              <span>Vue.js</span> <span>Node.js</span> <span>RWD</span> <span>RESTful API</span>
+            </li>
           </ul>
           <div class="product__title__mobile">
             <div>
@@ -153,9 +168,7 @@ onMounted(() => {
 
   if (titles.length === 0 || images.length === 0) return
 
-  if (titles.length > 0) {
-    activateTitle(titles[0])
-  }
+  titles.forEach((t) => gsap.set(t, { opacity: 0.5, textShadow: '0 0 0px transparent' }))
 
   images.forEach((img, i) => {
     if (titles.length > 0 && images.length > 0) {
@@ -163,6 +176,7 @@ onMounted(() => {
         trigger: img,
         start: 'top 60%', // 當圖片頂部到達視窗下方 60%
         end: 'bottom 40%', // 當圖片底部離開視窗上方 40%
+        refreshPriority: -1,
         onToggle: (self) => {
           if (self.isActive) {
             // 如果有舊的在亮，先關掉
@@ -170,6 +184,10 @@ onMounted(() => {
             activateTitle(titles[i], i)
           } else {
             deactivateTitle(titles[i])
+
+            if (i === 0 && self.direction === -1) {
+              activateTitle(titles[0])
+            }
           }
         },
       })
@@ -179,7 +197,6 @@ onMounted(() => {
 
 // --- active 樣式定義 ---
 function activateTitle(el) {
-  gsap.killTweensOf(el, 'opacity')
   // 1. 透明度切換
   gsap.to(el, {
     opacity: 1,
@@ -188,7 +205,6 @@ function activateTitle(el) {
   })
 
   // 2. 呼吸發光效果（textShadow）
-  gsap.killTweensOf(el, 'textShadow')
   gsap.to(el, {
     textShadow: '0 0 10px #dd551f33, 0 0 15px #dd551f4D, 0 0 20px #dd551f80',
     duration: 1.5,
@@ -200,9 +216,6 @@ function activateTitle(el) {
 }
 
 function deactivateTitle(el) {
-  // 先停止現有 tween
-  gsap.killTweensOf(el)
-
   // 還原半透明與取消發光
   gsap.to(el, {
     opacity: 0.5,
@@ -309,23 +322,34 @@ function deactivateTitle(el) {
   flex-flow: column;
   gap: 0px;
 }
+
 .product__img .product__item .carousel__text {
   width: 100%;
   position: absolute;
   top: 45%;
   display: flex;
   overflow: hidden;
+  white-space: nowrap;
+}
+.product__img .product__item:nth-of-type(2) .carousel__text {
+  top: 40%;
 }
 .product__img .product__item .carousel__text li {
-  flex: 0 0 100%;
+  flex: none;
+  min-width: max-content;
   display: flex;
-  justify-content: space-between;
-  gap: 40px;
-  padding-left: 60px;
+  justify-content: flex-start;
+  gap: 2vw;
+  padding-left: 3vw;
   font-size: var(--f50);
   color: var(--MainColor);
   line-height: 1.2;
-  animation: carousel-right 5s linear infinite;
+  animation: carousel-right 10s linear infinite;
+  white-space: nowrap;
+}
+.product__img .product__item .carousel__text li span {
+  width: auto;
+  flex-shrink: 0;
 }
 @keyframes carousel-right {
   0% {
