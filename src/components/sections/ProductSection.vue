@@ -153,6 +153,10 @@ onMounted(() => {
 
   if (titles.length === 0 || images.length === 0) return
 
+  if (titles.length > 0) {
+    activateTitle(titles[0])
+  }
+
   images.forEach((img, i) => {
     if (titles.length > 0 && images.length > 0) {
       ScrollTrigger.create({
@@ -173,8 +177,9 @@ onMounted(() => {
   })
 })
 
-// --- 活動樣式定義 ---
+// --- active 樣式定義 ---
 function activateTitle(el) {
+  gsap.killTweensOf(el, 'opacity')
   // 1. 透明度切換
   gsap.to(el, {
     opacity: 1,
@@ -182,27 +187,29 @@ function activateTitle(el) {
     overwrite: 'auto',
   })
 
-  // 2. 呼吸發光效果
+  // 2. 呼吸發光效果（textShadow）
+  gsap.killTweensOf(el, 'textShadow')
   gsap.to(el, {
-    textShadow: '0 0 10px #dd551f33, 0 0 15px #dd551f4D , 0 0 20px #dd551f80',
+    textShadow: '0 0 10px #dd551f33, 0 0 15px #dd551f4D, 0 0 20px #dd551f80',
     duration: 1.5,
     repeat: -1,
     yoyo: true,
     ease: 'sine.inOut',
+    overwrite: 'auto',
   })
 }
 
 function deactivateTitle(el) {
-  // 1. 恢復半透明
+  // 先停止現有 tween
+  gsap.killTweensOf(el)
+
+  // 還原半透明與取消發光
   gsap.to(el, {
     opacity: 0.5,
-    textShadow: '0 0 0px rgba(255,255,255,0)', // 消除發光
+    textShadow: '0 0 0px rgba(255,255,255,0)',
     duration: 0.5,
     overwrite: 'auto',
   })
-
-  // 2. 停止該元素上的所有呼吸動畫
-  gsap.killTweensOf(el, 'textShadow')
 }
 </script>
 
@@ -305,7 +312,7 @@ function deactivateTitle(el) {
 .product__img .product__item .carousel__text {
   width: 100%;
   position: absolute;
-  top: 50%;
+  top: 45%;
   display: flex;
   overflow: hidden;
 }

@@ -36,7 +36,7 @@
           <SocialLink
             class="link item_d"
             href="https://vocus.cc/salon/dizzydog"
-            label="BLOG(VOCUS)"
+            label="BLOG"
             iconName="vocus-icon"
           />
           <SocialLink

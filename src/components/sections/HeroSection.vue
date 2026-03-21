@@ -72,7 +72,6 @@ import { MotionPathPlugin } from 'gsap/MotionPathPlugin'
 import BaseButton from '../base/BaseButton.vue'
 
 const goProject = () => {
-  console.log('啟動信箱')
   const user = 'yisheng.chen.jackie'
   const domain = 'gmail.com'
   window.location.href = `mailto:${user}@${domain}`
@@ -92,7 +91,15 @@ const getImg = (name, n) => {
   return new URL(`../../assets/images/${name}-${n}.webp`, import.meta.url).href
 }
 
-onMounted(() => {
+const emit = defineEmits(['heroImagesLoaded'])
+
+onMounted(async () => {
+  // 等待所有圖片載入完成
+  await waitForImages()
+  // 通知父組件 HomeView 的圖片已經載入完成
+  emit('heroImagesLoaded')
+
+  // 設置初始狀態
   gsap.set('.mtn-1', { yPercent: '100', xPercent: '0', opacity: 0 })
   gsap.set('.mtn-2', { yPercent: '100', xPercent: '50', opacity: 0 })
   gsap.set('.mtn-3', { yPercent: '100', xPercent: '0', opacity: 0 })
@@ -338,6 +345,49 @@ onMounted(() => {
     '<',
   )
 })
+
+// 等待所有圖片載入的函數
+const waitForImages = () => {
+  return new Promise((resolve) => {
+    const images = document.querySelectorAll('.ukiyo-stage img')
+    let loadedCount = 0
+    const totalImages = images.length
+
+    const timeout = setTimeout(() => {
+      console.warn('圖片載入超時，繼續執行動畫')
+      resolve()
+    }, 3000) // 3秒超時
+
+    if (totalImages === 0) {
+      clearTimeout(timeout)
+      resolve()
+      return
+    }
+
+    const onLoad = (e) => {
+      // 移除事件監聽器，避免重複觸發
+      if (e && e.target) {
+        e.target.removeEventListener('load', onLoad)
+        e.target.removeEventListener('error', onLoad)
+      }
+
+      loadedCount++
+      if (loadedCount === totalImages) {
+        clearTimeout(timeout)
+        resolve()
+      }
+    }
+
+    images.forEach((img) => {
+      if (img.complete) {
+        onLoad()
+      } else {
+        img.addEventListener('load', onLoad)
+        img.addEventListener('error', onLoad) // 即使載入失敗也繼續
+      }
+    })
+  })
+}
 </script>
 
 <style scoped>
@@ -392,7 +442,7 @@ onMounted(() => {
   gap: 10px;
   border-radius: 50px;
   padding: 10px 30px;
-  transition: unset;
+  transition: 0.5s ease;
 }
 .hero__button img {
   color: var(--MainColor);
