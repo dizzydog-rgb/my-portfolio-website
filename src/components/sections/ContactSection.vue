@@ -3,7 +3,7 @@
     <div class="contact__content">
       <div class="contact_img">
         <figure>
-          <img src="https://picsum.photos/seed/picsum/780/1000" alt="My portfolio website" />
+          <img src="@/assets/images/contact-img.jpg" alt="My portfolio website" />
         </figure>
       </div>
       <div class="contact__info">
@@ -48,10 +48,10 @@
         </div>
       </div>
       <div class="animals">
-        <figure><img src="@/assets/images/choju-1.png" alt="" /></figure>
-        <figure><img src="@/assets/images/choju-2.png" alt="" /></figure>
-        <figure><img src="@/assets/images/choju-3.png" alt="" /></figure>
-        <figure><img src="@/assets/images/choju-4.png" alt="" /></figure>
+        <figure><img src="@/assets/images/choju-1.png" /></figure>
+        <figure><img src="@/assets/images/choju-2.png" /></figure>
+        <figure><img src="@/assets/images/choju-3.png" /></figure>
+        <figure><img src="@/assets/images/choju-4.png" /></figure>
       </div>
     </div>
   </section>
@@ -116,6 +116,16 @@ onMounted(() => {
   grid-template-columns: 1fr 1fr;
   gap: 5vw;
   position: relative;
+}
+
+.contact_img figure {
+  width: 100%;
+  height: 100%;
+}
+.contact_img figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .contact__info h2 {

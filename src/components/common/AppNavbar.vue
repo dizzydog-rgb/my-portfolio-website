@@ -24,9 +24,15 @@ onUnmounted(() => {
   <nav class="navbar" :class="{ 'navbar--scrolled': isScrolled }">
     <router-link to="/"><div class="logo">Jackie Chen</div></router-link>
     <div class="links">
-      <router-link to="/">About</router-link>
-      <router-link to="/library">Library</router-link>
-      <router-link to="/blog">Blog</router-link>
+      <router-link to="/" link-text="About">About</router-link>
+      <router-link to="/library" link-text="Library">Library</router-link>
+      <a
+        href="https://vocus.cc/salon/dizzydog"
+        target="_blank"
+        rel="noopener noreferrer"
+        link-text="My Vocus"
+        ><span>My Vocus <img src="@/assets/icons/open-in-new.svg" /></span
+      ></a>
     </div>
   </nav>
 </template>
@@ -66,12 +72,49 @@ onUnmounted(() => {
   display: flex;
   justify-content: center;
   gap: 40px;
+  padding-right: 20px;
 }
-.links a {
+.links a,
+.links router-link {
   font-size: var(--f24);
   color: var(--MainColor);
   text-decoration: none;
   font-weight: 300;
+  display: inline-flex;
+  flex-flow: column;
+  align-items: center;
+  letter-spacing: 0.05em;
+  transition:
+    color 0.3s,
+    letter-spacing 0.3s;
+}
+.links a::after,
+.links router-link::after {
+  content: attr(link-text);
+  display: block;
+  height: 0;
+  visibility: hidden;
+  overflow: hidden;
+  user-select: none;
+  pointer-events: none;
+  letter-spacing: 0.1em;
+  font-weight: 300;
+}
+.links a span {
+  position: relative;
+}
+.links a span img {
+  position: absolute;
+  right: -25px;
+  top: 8px;
+  max-width: 20px;
+}
+.links a:hover {
+  color: var(--SubColor);
+  letter-spacing: 0.1em;
+}
+.links a:hover img {
+  filter: invert(35%) sepia(94%) saturate(1156%) hue-rotate(351deg) brightness(93%) contrast(87%);
 }
 
 /* 當前路徑的樣式 */

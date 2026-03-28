@@ -5,9 +5,9 @@
         <div class="product__title">
           <div>
             <span>01</span>
-            <h6>Design and Frontend Developer</h6>
+            <h6>Frontend Developer</h6>
           </div>
-          <h2>Jackie's portfolio website</h2>
+          <h2>Design-to-Code</h2>
         </div>
         <div class="product__title">
           <div>
@@ -27,45 +27,46 @@
       <div class="product__img">
         <div class="product__item">
           <figure>
-            <img src="https://picsum.photos/id/23/850/450" alt="My portfolio website" />
-            <figcaption>
-              Supported marketing efforts as a generalist designer, contributing to design during
-              their second funding round which raised over $2M.
-            </figcaption>
-            <div class="link__group">
-              <ProjectLink
-                class="link project_link"
-                href="https://github.com/dizzydog-rgb/my-portfolio-website"
-                label="View Project"
-              />
-              <ProjectLink
-                class="link project_link"
-                href="https://github.com/dizzydog-rgb/my-portfolio-website"
-                label="View Github"
-              />
+            <div class="product__gallery">
+              <a href="https://www.shengjinlion.com/" target="_blank" class="gallery__link">
+                <img src="@/assets/images/gallery-shengjinlion.webp" />
+              </a>
+              <a href="https://www.82road-barbershop.com/" target="_blank" class="gallery__link">
+                <img src="@/assets/images/gallery-82road.webp" />
+              </a>
+              <a href="https://www.lightrealm-design.com/" target="_blank" class="gallery__link">
+                <img src="@/assets/images/gallery-lightrealm.webp" />
+              </a>
+              <a href="https://www.yong-syu.com/" target="_blank" class="gallery__link">
+                <img src="@/assets/images/gallery-yong-syu.webp" />
+              </a>
             </div>
+            <figcaption>
+              Exhibited a high-fidelity recreation of the original design, ensuring a 1px-perfect
+              match across all viewports. Focused on maintaining absolute visual consistency from
+              mobile to desktop, delivering a seamless brand experience without compromising design
+              integrity.
+            </figcaption>
           </figure>
-          <ul class="carousel__text">
-            <li><span>Vue.js</span><span>GSAP</span> <span>RWD</span><span>SCSS</span></li>
-            <li><span>Vue.js</span><span>GSAP</span> <span>RWD</span><span>SCSS</span></li>
-          </ul>
           <div class="product__title__mobile">
             <div>
               <span>01</span>
               <h6>Design and Frontend Developer</h6>
             </div>
-            <h2>Jackie's portfolio website</h2>
+            <h2>Design-to-Code</h2>
             <p>
-              A responsive product showcase component displaying three portfolio projects with
-              scroll-triggered animations. Features a sticky left sidebar with project titles that
-              glow when their corresponding images enter the viewport, plus auto-scrolling tech
-              stack carousels and adaptive mobile layouts.
+              Exhibited a high-fidelity recreation of the original design, ensuring a 1px-perfect
+              match across all viewports. Focused on maintaining absolute visual consistency from
+              mobile to desktop, delivering a seamless brand experience without compromising design
+              integrity.
             </p>
           </div>
         </div>
         <div class="product__item">
           <figure>
-            <img src="https://picsum.photos/id/237/850/450" alt="Orderly & Steady" />
+            <div class="img_container">
+              <img src="@/assets/images/orderly-steady.webp" alt="Orderly & Steady" />
+            </div>
             <figcaption>
               A Vue/Node.js/MySQL web app using AI to classify food (Protein, Starch, Veggies). It
               scores diets based on optimal intake order (Veggies → Protein → Starch) to regulate
@@ -84,7 +85,7 @@
               />
             </div>
           </figure>
-          <ul class="carousel__text">
+          <!-- <ul class="carousel__text">
             <li>
               <span>Vue.js</span> <span>Node.js</span> <span>MySQL</span
               ><span style="min-width: 160px">AI-Driven</span>
@@ -92,7 +93,7 @@
             <li>
               <span>Vue.js</span> <span>Node.js</span> <span>MySQL</span><span>AI-Driven</span>
             </li>
-          </ul>
+          </ul> -->
           <div class="product__title__mobile">
             <div>
               <span>02</span>
@@ -100,16 +101,17 @@
             </div>
             <h2>Orderly & Steady</h2>
             <p>
-              A responsive product showcase component displaying three portfolio projects with
-              scroll-triggered animations. Features a sticky left sidebar with project titles that
-              glow when their corresponding images enter the viewport, plus auto-scrolling tech
-              stack carousels and adaptive mobile layouts.
+              A Vue/Node.js/MySQL web app using AI to classify food (Protein, Starch, Veggies). It
+              scores diets based on optimal intake order (Veggies → Protein → Starch) to regulate
+              blood sugar, with full Vitest coverage for reliability.
             </p>
           </div>
         </div>
         <div class="product__item">
           <figure>
-            <img src="https://picsum.photos/id/236/850/450" alt="Chill Around" />
+            <div class="img_container">
+              <img src="@/assets/images/chill-around.webp" alt="Chill Around" />
+            </div>
             <figcaption>
               Chill Around is a tourism platform enabling users to explore attractions and plan
               trips. It features an interactive UI for discovering local spots, categories, and
@@ -129,14 +131,14 @@
               />
             </div>
           </figure>
-          <ul class="carousel__text">
+          <!-- <ul class="carousel__text">
             <li>
-              <span>Vue.js</span> <span>Node.js</span> <span>RWD</span> <span>RESTful API</span>
+              <span>JavaScript</span> <span>Node.js</span> <span>RWD</span> <span>RESTful API</span>
             </li>
             <li>
-              <span>Vue.js</span> <span>Node.js</span> <span>RWD</span> <span>RESTful API</span>
+              <span>JavaScript</span> <span>Node.js</span> <span>RWD</span> <span>RESTful API</span>
             </li>
-          </ul>
+          </ul> -->
           <div class="product__title__mobile">
             <div>
               <span>03</span>
@@ -144,8 +146,10 @@
             </div>
             <h2>Chill Around</h2>
             <p>
-              Supported marketing efforts as a generalist designer, contributing to design during
-              their second funding round which raised over $2M.
+              Chill Around is a tourism platform enabling users to explore attractions and plan
+              trips. It features an interactive UI for discovering local spots, categories, and
+              detailed travel information, providing a seamless experience for travelers to organize
+              their itineraries efficiently.
             </p>
           </div>
         </div>
@@ -311,6 +315,7 @@ function deactivateTitle(el) {
 .product__img .product__item {
   position: relative;
 }
+
 .product__img .product__item figcaption,
 .product__item .product__title__mobile p {
   padding: 20px 15px 0;
@@ -326,13 +331,11 @@ function deactivateTitle(el) {
 .product__img .product__item .carousel__text {
   width: 100%;
   position: absolute;
-  top: 45%;
+  top: min(45%, 15vw);
   display: flex;
   overflow: hidden;
   white-space: nowrap;
-}
-.product__img .product__item:nth-of-type(2) .carousel__text {
-  top: 40%;
+  pointer-events: none;
 }
 .product__img .product__item .carousel__text li {
   flex: none;
@@ -358,6 +361,36 @@ function deactivateTitle(el) {
   100% {
     transform: translateX(-100%);
   }
+}
+
+.product__img .product__item .img_container {
+  border: 1px solid var(--MainColor);
+  overflow: hidden;
+}
+.product__img .product__item .img_container img {
+  transition: 0.5s;
+}
+.product__img .product__item .img_container:hover img {
+  transform: scale(1.02);
+}
+
+.product__item .product__gallery .gallery__link {
+  filter: brightness(0.9);
+  transition: 0.5s;
+}
+.product__item .product__gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.product__item .product__gallery .gallery__link {
+  display: block;
+  overflow: hidden;
+}
+.product__item .product__gallery .gallery__link img {
+  transition: 0.5s;
+}
+.product__item .product__gallery .gallery__link:hover img {
+  transform: scale(1.05);
 }
 
 @media (max-width: 1440px) {
@@ -407,6 +440,12 @@ function deactivateTitle(el) {
   }
   .product__item .product__title__mobile p {
     line-height: 1.6;
+  }
+  .product__item .product__gallery {
+    grid-template-columns: 1fr;
+  }
+  .product__img .product__item:first-child .carousel__text {
+    top: 65%;
   }
 }
 </style>
