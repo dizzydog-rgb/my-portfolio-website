@@ -12,12 +12,7 @@ const routes = [
     name: 'library',
     // 路由懶加載：只有走到這一頁才會載入資源，效能更好
     component: () => import('../views/LibraryView.vue'),
-  },
-  {
-    path: '/blog',
-    name: 'blog',
-    component: () => import('../views/BlogView.vue'),
-  },
+  }
 ]
 
 const router = createRouter({
