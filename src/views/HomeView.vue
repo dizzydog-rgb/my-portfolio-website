@@ -35,7 +35,6 @@ const handleLoaderFinished = () => {
   // 核心：給瀏覽器一點時間渲染 DOM，然後強制 GSAP 重新計算所有位置
   setTimeout(() => {
     ScrollTrigger.refresh()
-    console.log('所有位置已重新計算')
   }, 100)
 }
 
