@@ -1,1 +1,0 @@
-import{_ as t,c as s,b as c,a as o,e as r,o as a}from"./index-J1auBLc_.js";const l={};function i(_,e){const n=r("HeroSection");return a(),s("main",null,[c(n),e[0]||(e[0]=o("section",{class:"demo-section"},[o("h1",null,"我是部落格")],-1))])}const d=t(l,[["render",i]]);export{d as default};
