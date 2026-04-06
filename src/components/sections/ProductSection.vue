@@ -30,19 +30,19 @@
             <div class="product__gallery">
               <a href="https://www.shengjinlion.com/" target="_blank" class="gallery__link">
                 <img src="@/assets/images/gallery-shengjinlion.webp" alt="shengjinlion official website landing page showcase"/>
-                <div class="hover__overlay"> <span>Visit Sheng Jin Group Official Website</span> </div>
+                <div class="hover__overlay"> <span>Visit Sheng Jin Group <br> Official Website</span> </div>
               </a>
               <a href="https://www.82road-barbershop.com/" target="_blank" class="gallery__link">
                 <img src="@/assets/images/gallery-82road.webp" alt="82raod official website landing page showcase"/>
-                <div class="hover__overlay"> <span>Visit 82 ROAD Official Website</span> </div>
+                <div class="hover__overlay"> <span>Visit 82 Road <br> Official Website</span> </div>
               </a>
               <a href="https://www.lightrealm-design.com/" target="_blank" class="gallery__link">
                 <img src="@/assets/images/gallery-lightrealm.webp" alt="lightrealm official website landing page showcase"/>
-                <div class="hover__overlay"> <span>Visit Floating Light Official Website</span> </div>
+                <div class="hover__overlay"> <span>Visit Floating Light <br> Official Website</span> </div>
               </a>
               <a href="https://www.yong-syu.com/" target="_blank" class="gallery__link">
                 <img src="@/assets/images/gallery-yong-syu.webp" alt="yong-syu official website landing page showcase"/>
-                <div class="hover__overlay"> <span>Visit Yong Syu Official Website</span> </div>
+                <div class="hover__overlay"> <span>Visit Yong Syu <br> Official Website</span> </div>
               </a>
             </div>
             <figcaption>
@@ -399,9 +399,11 @@ function deactivateTitle(el) {
 }
 .gallery__link .hover__overlay span{
   display: inline-block;
-  font-size: var(--f32);
+  font-size: var(--f18);
   color: var(--SubColor);
+  text-align: center;
   font-weight: 500;
+  line-height: 1.5;
   background: #ffffff;
   border: 1px solid var(--SubColor);
   border-radius: 10px;
