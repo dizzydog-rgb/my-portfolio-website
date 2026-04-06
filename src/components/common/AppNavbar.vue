@@ -31,7 +31,7 @@ onUnmounted(() => {
         target="_blank"
         rel="noopener noreferrer"
         link-text="My Vocus"
-        ><span>My Vocus <img src="@/assets/icons/open-in-new.svg" /></span
+        ><span>My Vocus <img src="@/assets/icons/open-in-new.svg" alt="open in new"/></span
       ></a>
     </div>
   </nav>

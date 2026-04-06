@@ -17,6 +17,8 @@
           :key="'mtn' + n"
           :src="getImg('mountain', n)"
           :class="[`mtn-img`, `mtn-${n}`]"
+          :alt="`Mountain ukiyo-e ${n}`"
+          loading="lazy"
         />
       </div>
 
@@ -25,8 +27,9 @@
           v-for="n in 2"
           :key="'wave' + n"
           :src="getImg('wave', n)"
-          loading="lazy"
           :class="[`wave-img`, `wave-${n}`]"
+          :alt="`Wave ukiyo-e ${n}`"
+          loading="lazy"
         />
       </div>
 
@@ -36,8 +39,9 @@
             v-for="n in 4"
             :key="'ppl' + n"
             :src="getImg('kabuki', n)"
-            loading="lazy"
             :class="[`kabuki-img`, `kabuki-${n}`]"
+            :alt="`Kabuki ukiyo-e ${n}`"
+            loading="lazy"
           />
         </div>
         <div class="bijin--group">
@@ -45,8 +49,9 @@
             v-for="n in 5"
             :key="'ppl' + n"
             :src="getImg('bijin', n)"
-            loading="lazy"
             :class="[`bijin-img`, `bijin-${n}`]"
+            :alt="`Bijin ukiyo-e ${n}`"
+            loading="lazy"
           />
         </div>
       </div>
@@ -57,8 +62,9 @@
         <div v-for="n in 10" :key="'mon' + n" class="monster-wrapper">
           <img
             :src="getImg('monster', n)"
-            loading="lazy"
             :class="[`monster-img`, `monster-${n}`]"
+            :alt="`Monster ukiyo-e ${n}`"
+            loading="lazy"
           />
         </div>
       </div>

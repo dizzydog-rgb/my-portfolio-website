@@ -5,21 +5,21 @@
         <div class="product__title">
           <div>
             <span>01</span>
-            <h6>Frontend Developer</h6>
+            <h2>Frontend Developer</h2>
           </div>
           <h2>Design-to-Code</h2>
         </div>
         <div class="product__title">
           <div>
             <span>02</span>
-            <h6>Design and Fullend Developer</h6>
+            <h2>Design and Fullend Developer</h2>
           </div>
           <h2>Orderly & Steady</h2>
         </div>
         <div class="product__title">
           <div>
             <span>03</span>
-            <h6>Team Leader and Frontend Developer</h6>
+            <h2>Team Leader and Frontend Developer</h2>
           </div>
           <h2>Chill Around</h2>
         </div>
@@ -29,16 +29,20 @@
           <figure>
             <div class="product__gallery">
               <a href="https://www.shengjinlion.com/" target="_blank" class="gallery__link">
-                <img src="@/assets/images/gallery-shengjinlion.webp" />
+                <img src="@/assets/images/gallery-shengjinlion.webp" alt="shengjinlion official website landing page showcase"/>
+                <div class="hover__overlay"> <span>Visit Sheng Jin Group Official Website</span> </div>
               </a>
               <a href="https://www.82road-barbershop.com/" target="_blank" class="gallery__link">
-                <img src="@/assets/images/gallery-82road.webp" />
+                <img src="@/assets/images/gallery-82road.webp" alt="82raod official website landing page showcase"/>
+                <div class="hover__overlay"> <span>Visit 82 ROAD Official Website</span> </div>
               </a>
               <a href="https://www.lightrealm-design.com/" target="_blank" class="gallery__link">
-                <img src="@/assets/images/gallery-lightrealm.webp" />
+                <img src="@/assets/images/gallery-lightrealm.webp" alt="lightrealm official website landing page showcase"/>
+                <div class="hover__overlay"> <span>Visit Floating Light Official Website</span> </div>
               </a>
               <a href="https://www.yong-syu.com/" target="_blank" class="gallery__link">
-                <img src="@/assets/images/gallery-yong-syu.webp" />
+                <img src="@/assets/images/gallery-yong-syu.webp" alt="yong-syu official website landing page showcase"/>
+                <div class="hover__overlay"> <span>Visit Yong Syu Official Website</span> </div>
               </a>
             </div>
             <figcaption>
@@ -51,7 +55,7 @@
           <div class="product__title__mobile">
             <div>
               <span>01</span>
-              <h6>Design and Frontend Developer</h6>
+              <h2>Design and Frontend Developer</h2>
             </div>
             <h2>Design-to-Code</h2>
             <p>
@@ -97,7 +101,7 @@
           <div class="product__title__mobile">
             <div>
               <span>02</span>
-              <h6>Design and Fullend Developer</h6>
+              <h2>Design and Fullend Developer</h2>
             </div>
             <h2>Orderly & Steady</h2>
             <p>
@@ -142,7 +146,7 @@
           <div class="product__title__mobile">
             <div>
               <span>03</span>
-              <h6>Team Leader and Frontend Developer</h6>
+              <h2>Team Leader and Frontend Developer</h2>
             </div>
             <h2>Chill Around</h2>
             <p>
@@ -287,8 +291,8 @@ function deactivateTitle(el) {
   letter-spacing: 0.1em;
   line-height: 1.2;
 }
-.product__fixed .product__title h6,
-.product__item .product__title__mobile h6 {
+.product__fixed .product__title h2,
+.product__item .product__title__mobile h2 {
   font-size: var(--f20);
   color: var(--SubColor);
   font-family: var(--SFontSans);
@@ -385,6 +389,37 @@ function deactivateTitle(el) {
 .product__item .product__gallery .gallery__link {
   display: block;
   overflow: hidden;
+  position: relative;
+}
+.gallery__link .hover__overlay{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.gallery__link .hover__overlay span{
+  display: inline-block;
+  font-size: var(--f32);
+  color: var(--SubColor);
+  font-weight: 500;
+  background: #ffffff;
+  border: 1px solid var(--SubColor);
+  border-radius: 10px;
+  padding: 4px 12px;
+  opacity: 0;
+  transition: 0.5s;
+}
+@keyframes scale-up {
+  0%, 100%{
+    transform: scale(1);
+  }
+  50%{
+    transform: scale(1.05);
+  }
+}
+.gallery__link:hover .hover__overlay span {
+  opacity: 1;
+  animation: scale-up 1.5s infinite;
 }
 .product__item .product__gallery .gallery__link img {
   transition: 0.5s;
@@ -392,6 +427,8 @@ function deactivateTitle(el) {
 .product__item .product__gallery .gallery__link:hover img {
   transform: scale(1.05);
 }
+
+
 
 @media (max-width: 1440px) {
 }
