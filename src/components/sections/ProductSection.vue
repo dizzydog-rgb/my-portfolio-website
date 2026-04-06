@@ -247,7 +247,7 @@ function deactivateTitle(el) {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('@/assets/images/ukiyo-e-parpe-texture.png');
+  background-image: url('@/assets/images/ukiyo-e-parpe-texture.webp');
   background-size: cover;
   opacity: 0.7;
   z-index: -1;
