@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
 const routes = [
@@ -10,13 +10,12 @@ const routes = [
   {
     path: '/library',
     name: 'library',
-    // 路由懶加載：只有走到這一頁才會載入資源，效能更好
     component: () => import('../views/LibraryView.vue'),
   }
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes,
   linkActiveClass: 'is-active',
   linkExactActiveClass: 'is-exact',
