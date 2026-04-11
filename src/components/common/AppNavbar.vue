@@ -59,8 +59,8 @@ onUnmounted(() => {
 }
 .navbar.navbar--scrolled {
   padding: 15px 40px;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 .navbar .logo {
