@@ -1,5 +1,10 @@
 # Jackie's Portfolio 🚀
 
+![Lighthouse Score](./src/assets/images/lighthouse-score.png)
+
+> **「極致細節與卓越效能兼具。」**
+> 本作品集在追求 1px-Perfect 視覺還原度的同時，依然維持了頂尖的效能表現。
+
 [![Vue](https://img.shields.io/badge/Vue.js-3.x-4fc08d?logo=vue.js)](https://vuejs.org/)
 [![GSAP](https://img.shields.io/badge/Animations-GSAP-green?logo=greensock)](https://greensock.com/gsap/)
 [![Vite](https://img.shields.io/badge/Build-Vite-646cff?logo=vite)](https://vitejs.dev/)
