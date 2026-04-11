@@ -66,9 +66,9 @@ onUnmounted(() => {
   <div class="loader-overlay">
     <div class="loader-content">
       <div class="loader-image">
-        <figure><img src="@/assets/images/choju-1.png" alt="" /></figure>
-        <figure><img src="@/assets/images/choju-1.png" alt="" /></figure>
-        <figure><img src="@/assets/images/choju-1.png" alt="" /></figure>
+        <figure><img src="@/assets/images/choju-1.webp" alt="" /></figure>
+        <figure><img src="@/assets/images/choju-1.webp" alt="" /></figure>
+        <figure><img src="@/assets/images/choju-1.webp" alt="" /></figure>
       </div>
       <div class="progress-bar">
         <div class="progress-fill" :style="{ width: progress + '%' }"></div>

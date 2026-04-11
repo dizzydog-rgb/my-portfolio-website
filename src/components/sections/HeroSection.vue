@@ -520,6 +520,8 @@ const waitForImages = () => {
   position: absolute;
   bottom: 0;
   left: 0;
+  width: 100%;
+  height: auto;
 }
 .mtn-2 {
   bottom: -120px;
@@ -529,13 +531,15 @@ const waitForImages = () => {
   position: absolute;
   bottom: 0;
   left: 0;
+  width: 100%;
+  height: auto;
 }
 
 .kabuki-img,
 .bijin-img {
   max-width: 30vw;
   position: absolute;
-  bottom: 10%;
+  bottom: 0%;
   left: 35vw;
   transform: scale(0.9);
 

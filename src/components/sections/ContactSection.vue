@@ -48,10 +48,10 @@
         </div>
       </div>
       <div class="animals">
-        <figure><img src="@/assets/images/choju-1.png" alt="rabbit"/></figure>
-        <figure><img src="@/assets/images/choju-2.png" alt="monkey"/></figure>
-        <figure><img src="@/assets/images/choju-3.png" alt="frog"/></figure>
-        <figure><img src="@/assets/images/choju-4.png" alt="fox"/></figure>
+        <figure><img src="@/assets/images/choju-1.webp" alt="rabbit"/></figure>
+        <figure><img src="@/assets/images/choju-2.webp" alt="monkey"/></figure>
+        <figure><img src="@/assets/images/choju-3.webp" alt="frog"/></figure>
+        <figure><img src="@/assets/images/choju-4.webp" alt="fox"/></figure>
       </div>
     </div>
   </section>

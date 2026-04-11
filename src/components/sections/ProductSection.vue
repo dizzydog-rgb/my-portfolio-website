@@ -5,21 +5,21 @@
         <div class="product__title">
           <div>
             <span>01</span>
-            <h2>Frontend Developer</h2>
+            <h3>Frontend Developer</h3>
           </div>
           <h2>Design-to-Code</h2>
         </div>
         <div class="product__title">
           <div>
             <span>02</span>
-            <h2>Design and Fullend Developer</h2>
+            <h3>Design and Full-Stack Developer</h3>
           </div>
-          <h2>Orderly & Steady</h2>
+          <h2>Orderly & Steady <i style="font-size: 16px;">(Work In Progress)</i></h2>
         </div>
         <div class="product__title">
           <div>
             <span>03</span>
-            <h2>Team Leader and Frontend Developer</h2>
+            <h3>Team Leader and Frontend Developer</h3>
           </div>
           <h2>Chill Around</h2>
         </div>
@@ -291,11 +291,11 @@ function deactivateTitle(el) {
   letter-spacing: 0.1em;
   line-height: 1.2;
 }
-.product__fixed .product__title h2,
-.product__item .product__title__mobile h2 {
+.product__fixed .product__title h3,
+.product__item .product__title__mobile h3 {
   font-size: var(--f20);
-  color: var(--SubColor);
   font-family: var(--SFontSans);
+  color: var(--SubColor);
   line-height: 1.2;
   white-space: nowrap;
 }
@@ -330,6 +330,7 @@ function deactivateTitle(el) {
   display: flex;
   flex-flow: column;
   gap: 0px;
+  padding: 0 10px;
 }
 
 .product__img .product__item .carousel__text {
