@@ -18,7 +18,8 @@
           :src="getImg('mountain', n)"
           :class="[`mtn-img`, `mtn-${n}`]"
           :alt="`Mountain ukiyo-e ${n}`"
-          loading="lazy"
+          width="1920"
+          height="1071"
         />
       </div>
 
@@ -29,7 +30,8 @@
           :src="getImg('wave', n)"
           :class="[`wave-img`, `wave-${n}`]"
           :alt="`Wave ukiyo-e ${n}`"
-          loading="lazy"
+          width="2315"
+          height="628"
         />
       </div>
 
@@ -41,7 +43,8 @@
             :src="getImg('kabuki', n)"
             :class="[`kabuki-img`, `kabuki-${n}`]"
             :alt="`Kabuki ukiyo-e ${n}`"
-            loading="lazy"
+            width="1253"
+            height="1847"
           />
         </div>
         <div class="bijin--group">
@@ -51,7 +54,8 @@
             :src="getImg('bijin', n)"
             :class="[`bijin-img`, `bijin-${n}`]"
             :alt="`Bijin ukiyo-e ${n}`"
-            loading="lazy"
+            width="800"
+            height="1097"
           />
         </div>
       </div>
@@ -547,6 +551,7 @@ const waitForImages = () => {
 .kabuki-img,
 .bijin-img {
   max-width: 30vw;
+  height: auto;
   position: absolute;
   bottom: 0%;
   left: 35vw;
