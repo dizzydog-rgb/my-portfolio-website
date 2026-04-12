@@ -26,22 +26,22 @@
       </div>
       <div class="product__img">
         <div class="product__item">
-          <figure>
+          <figure class="product__gallery__container">
             <div class="product__gallery">
               <a href="https://www.shengjinlion.com/" target="_blank" class="gallery__link">
-                <img src="@/assets/images/gallery-shengjinlion.webp" alt="shengjinlion official website landing page showcase"/>
+                <figure><img src="@/assets/images/gallery-shengjinlion.webp" alt="shengjinlion official website landing page showcase"/></figure>
                 <div class="hover__overlay"> <span>Visit Sheng Jin Group <br> Official Website</span> </div>
               </a>
               <a href="https://www.82road-barbershop.com/" target="_blank" class="gallery__link">
-                <img src="@/assets/images/gallery-82road.webp" alt="82raod official website landing page showcase"/>
+                <figure><img src="@/assets/images/gallery-82road.webp" alt="82raod official website landing page showcase"/></figure>
                 <div class="hover__overlay"> <span>Visit 82 Road <br> Official Website</span> </div>
               </a>
               <a href="https://www.lightrealm-design.com/" target="_blank" class="gallery__link">
-                <img src="@/assets/images/gallery-lightrealm.webp" alt="lightrealm official website landing page showcase"/>
+                <figure><img src="@/assets/images/gallery-lightrealm.webp" alt="lightrealm official website landing page showcase"/></figure>
                 <div class="hover__overlay"> <span>Visit Floating Light <br> Official Website</span> </div>
               </a>
               <a href="https://www.yong-syu.com/" target="_blank" class="gallery__link">
-                <img src="@/assets/images/gallery-yong-syu.webp" alt="yong-syu official website landing page showcase"/>
+                <figure><img src="@/assets/images/gallery-yong-syu.webp" alt="yong-syu official website landing page showcase"/></figure>
                 <div class="hover__overlay"> <span>Visit Yong Syu <br> Official Website</span> </div>
               </a>
             </div>
@@ -55,7 +55,7 @@
           <div class="product__title__mobile">
             <div>
               <span>01</span>
-              <h2>Design and Frontend Developer</h2>
+              <h3>Design and Frontend Developer</h3>
             </div>
             <h2>Design-to-Code</h2>
             <p>
@@ -68,9 +68,9 @@
         </div>
         <div class="product__item">
           <figure>
-            <div class="img_container">
+            <figure>
               <img src="@/assets/images/orderly-steady.webp" alt="Orderly & Steady" />
-            </div>
+            </figure>
             <figcaption>
               A Vue/Node.js/MySQL web app using AI to classify food (Protein, Starch, Veggies). It
               scores diets based on optimal intake order (Veggies → Protein → Starch) to regulate
@@ -101,7 +101,7 @@
           <div class="product__title__mobile">
             <div>
               <span>02</span>
-              <h2>Design and Fullend Developer</h2>
+              <h3>Design and Fullend Developer</h3>
             </div>
             <h2>Orderly & Steady</h2>
             <p>
@@ -113,9 +113,9 @@
         </div>
         <div class="product__item">
           <figure>
-            <div class="img_container">
+            <figure>
               <img src="@/assets/images/chill-around.webp" alt="Chill Around" />
-            </div>
+            </figure>
             <figcaption>
               Chill Around is a tourism platform enabling users to explore attractions and plan
               trips. It features an interactive UI for discovering local spots, categories, and
@@ -146,7 +146,7 @@
           <div class="product__title__mobile">
             <div>
               <span>03</span>
-              <h2>Team Leader and Frontend Developer</h2>
+              <h3>Team Leader and Frontend Developer</h3>
             </div>
             <h2>Chill Around</h2>
             <p>
@@ -413,7 +413,7 @@ function deactivateTitle(el) {
   transition: 0.5s;
 }
 @keyframes scale-up {
-  0%, 100%{
+product__gallery  0%, 100%{
     transform: scale(1);
   }
   50%{
@@ -448,6 +448,9 @@ function deactivateTitle(el) {
   .product__item .product__title__mobile {
     display: block;
     padding-top: 20px;
+  }
+  .product__item .product__title__mobile > div{
+    gap: 12px;
   }
   .product__img .product__item figcaption {
     display: none;
