@@ -20,6 +20,7 @@
           :alt="`Mountain ukiyo-e ${n}`"
           width="1920"
           height="1071"
+          :fetchpriority="n === 1 ? 'high' : undefined"
         />
       </div>
 
