@@ -43,8 +43,8 @@
             :src="getImg('kabuki', n)"
             :class="[`kabuki-img`, `kabuki-${n}`]"
             :alt="`Kabuki ukiyo-e ${n}`"
-            width="1253"
-            height="1847"
+            width="800"
+            height="1179"
           />
         </div>
         <div class="bijin--group">
