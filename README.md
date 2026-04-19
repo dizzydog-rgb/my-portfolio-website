@@ -82,4 +82,4 @@ npm run deploy
 *   **CodePen**: [My Collection](https://codepen.io/collection/zzGkOR)
 
 ---
-Copyright © 2026 Jackie Chen. Built with ❤️ and precision.
+Copyright © 2026 Jackie Chen. Built with 💻 and precision.
