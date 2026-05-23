@@ -601,5 +601,11 @@ const waitForImages = () => {
   }
 }
 @media (max-width: 480px) {
+
+.kabuki-img,
+.bijin-img {
+    max-width: 40vw;
+    left: 30vw;
+  }
 }
 </style>
