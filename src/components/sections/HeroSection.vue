@@ -158,6 +158,7 @@ onMounted(async () => {
     // 響應式 - 定義安全區域與邊距
     const isMobile = window.innerWidth < 768
     const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024
+    const isSmallMobile = window.innerWidth <= 480
 
     const marginX = isMobile ? 75 : isTablet ? 100 : 200
     const marginTop = isMobile ? 100 : 120
@@ -203,11 +204,15 @@ onMounted(async () => {
 
     // 按鈕和標題的載入動畫
     const playEntranceAnim = () => {
-      gsap.fromTo(
-        '.hero__title',
-        { yPercent: 20, opacity: 0 }, // 初始 opacity 設為 0
-        { yPercent: 0, opacity: 0.7, duration: 2, ease: 'power2.out' },
-      )
+      if (window.innerWidth <= 768) {
+        gsap.set('.hero__title', { opacity: 0 })
+      } else {
+        gsap.fromTo(
+          '.hero__title',
+          { yPercent: 20, opacity: 0 },
+          { yPercent: 0, opacity: 0.7, duration: 2, ease: 'power2.out' },
+        )
+      }
       gsap.fromTo(
         '.button__container',
         { xPercent: -100 },
@@ -270,7 +275,7 @@ onMounted(async () => {
         opacity: 1,
         filter: 'blur(0px)',
         scale: 1,
-        y: -50,
+        y: isSmallMobile ? -(window.innerHeight * 0.35) : -50,
         stagger: {
           each: 2,
           yoyo: true, // **關鍵：浮現後自動跑回 start 狀態 (消失)**
@@ -290,7 +295,7 @@ onMounted(async () => {
         opacity: 1,
         filter: 'blur(0px)',
         scale: 1.05,
-        y: -80,
+        y: isSmallMobile ? -(window.innerHeight * 0.38) : -80,
         rotation: () => (Math.random() - 0.5) * 10,
         stagger: {
           each: 2.5,

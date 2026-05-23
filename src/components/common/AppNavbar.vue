@@ -84,6 +84,7 @@ onUnmounted(() => {
   flex-flow: column;
   align-items: center;
   letter-spacing: 0.05em;
+  white-space: nowrap;
   transition:
     color 0.3s,
     letter-spacing 0.3s;
@@ -142,6 +143,15 @@ onUnmounted(() => {
   }
   .navbar.navbar--scrolled {
     padding: 15px 25px;
+  }
+}
+@media (max-width: 375px) {
+  .links {
+    gap: 10px;
+  }
+  .links a,
+  .links router-link {
+    font-size: 15px;
   }
 }
 </style>
