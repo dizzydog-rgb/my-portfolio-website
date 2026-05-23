@@ -413,10 +413,10 @@ function deactivateTitle(el) {
   transition: 0.5s;
 }
 @keyframes scale-up {
-product__gallery  0%, 100%{
+  0%, 100% {
     transform: scale(1);
   }
-  50%{
+  50% {
     transform: scale(1.05);
   }
 }
