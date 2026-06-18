@@ -14,7 +14,7 @@
             <span>02</span>
             <h3>Design and Full-Stack Developer</h3>
           </div>
-          <h2>Orderly & Steady <i style="font-size: 16px;">(Work In Progress)</i></h2>
+          <h2>Orderly & Steady</h2>
         </div>
         <div class="product__title">
           <div>
@@ -69,12 +69,10 @@
         <div class="product__item">
           <figure>
             <figure>
-              <img src="@/assets/images/orderly-steady.webp" alt="Orderly & Steady" />
+              <img src="@/assets/images/orderly-steady.webp" alt="Orderly & Steady" class="product__mockup" />
             </figure>
             <figcaption>
-              A Vue/Node.js/MySQL web app using AI to classify food (Protein, Starch, Veggies). It
-              scores diets based on optimal intake order (Veggies → Protein → Starch) to regulate
-              blood sugar, with full Vitest coverage for reliability.
+              An AI-powered full-stack blood sugar management platform built with Vue 3, Node.js, and MySQL. It leverages Claude API to intelligently classify food components (Fiber, Protein, and Carbohydrates) and implements a custom Inversion Pair algorithm to score dietary impact based on optimal intake order. Architected with dual-token authentication and robust Vitest test coverage to guarantee 100% system reliability.
             </figcaption>
             <div class="link__group">
               <ProjectLink
@@ -105,16 +103,14 @@
             </div>
             <h2>Orderly & Steady</h2>
             <p>
-              A Vue/Node.js/MySQL web app using AI to classify food (Protein, Starch, Veggies). It
-              scores diets based on optimal intake order (Veggies → Protein → Starch) to regulate
-              blood sugar, with full Vitest coverage for reliability.
+              An AI-powered full-stack blood sugar management platform built with Vue 3, Node.js, and MySQL. It leverages Claude API to intelligently classify food components (Fiber, Protein, and Carbohydrates) and implements a custom Inversion Pair algorithm to score dietary impact based on optimal intake order. Architected with dual-token authentication and robust Vitest test coverage to guarantee 100% system reliability.
             </p>
           </div>
         </div>
         <div class="product__item">
           <figure>
             <figure>
-              <img src="@/assets/images/chill-around.webp" alt="Chill Around" />
+              <img src="@/assets/images/chill-around.webp" alt="Chill Around" class="product__mockup" />
             </figure>
             <figcaption>
               Chill Around is a tourism platform enabling users to explore attractions and plan
@@ -366,6 +362,15 @@ function deactivateTitle(el) {
   100% {
     transform: translateX(-100%);
   }
+}
+
+.product__img .product__item .product__mockup {
+  filter: drop-shadow(8px 12px 24px rgba(40, 30, 20, 0.15));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+.product__img .product__item .product__mockup:hover {
+  transform: translateY(-4px);
+  filter: drop-shadow(12px 20px 32px rgba(40, 30, 20, 0.22));
 }
 
 .product__img .product__item .img_container {
