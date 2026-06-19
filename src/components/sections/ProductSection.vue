@@ -29,20 +29,60 @@
           <figure class="product__gallery__container">
             <div class="product__gallery">
               <a href="https://www.shengjinlion.com/" target="_blank" class="gallery__link">
-                <figure><img src="@/assets/images/gallery-shengjinlion.webp" alt="shengjinlion official website landing page showcase"/></figure>
-                <div class="hover__overlay"> <span>Visit Sheng Jin Group <br> Official Website</span> </div>
+                <figure>
+                  <img
+                    src="@/assets/images/gallery-shengjinlion.webp"
+                    alt="shengjinlion official website landing page showcase"
+                  />
+                </figure>
+                <div class="hover__overlay">
+                  <span
+                    >Visit Sheng Jin Group <br />
+                    Official Website</span
+                  >
+                </div>
               </a>
               <a href="https://www.82road-barbershop.com/" target="_blank" class="gallery__link">
-                <figure><img src="@/assets/images/gallery-82road.webp" alt="82raod official website landing page showcase"/></figure>
-                <div class="hover__overlay"> <span>Visit 82 Road <br> Official Website</span> </div>
+                <figure>
+                  <img
+                    src="@/assets/images/gallery-82road.webp"
+                    alt="82raod official website landing page showcase"
+                  />
+                </figure>
+                <div class="hover__overlay">
+                  <span
+                    >Visit 82 Road <br />
+                    Official Website</span
+                  >
+                </div>
               </a>
               <a href="https://www.lightrealm-design.com/" target="_blank" class="gallery__link">
-                <figure><img src="@/assets/images/gallery-lightrealm.webp" alt="lightrealm official website landing page showcase"/></figure>
-                <div class="hover__overlay"> <span>Visit Floating Light <br> Official Website</span> </div>
+                <figure>
+                  <img
+                    src="@/assets/images/gallery-lightrealm.webp"
+                    alt="lightrealm official website landing page showcase"
+                  />
+                </figure>
+                <div class="hover__overlay">
+                  <span
+                    >Visit Floating Light <br />
+                    Official Website</span
+                  >
+                </div>
               </a>
               <a href="https://www.yong-syu.com/" target="_blank" class="gallery__link">
-                <figure><img src="@/assets/images/gallery-yong-syu.webp" alt="yong-syu official website landing page showcase"/></figure>
-                <div class="hover__overlay"> <span>Visit Yong Syu <br> Official Website</span> </div>
+                <figure>
+                  <img
+                    src="@/assets/images/gallery-yong-syu.webp"
+                    alt="yong-syu official website landing page showcase"
+                  />
+                </figure>
+                <div class="hover__overlay">
+                  <span
+                    >Visit Yong Syu <br />
+                    Official Website</span
+                  >
+                </div>
               </a>
             </div>
             <figcaption>
@@ -69,20 +109,28 @@
         <div class="product__item">
           <figure>
             <figure>
-              <img src="@/assets/images/orderly-steady.webp" alt="Orderly & Steady" class="product__mockup" />
+              <img
+                src="@/assets/images/orderly-steady.webp"
+                alt="Orderly & Steady"
+                class="product__mockup"
+              />
             </figure>
             <figcaption>
-              An AI-powered full-stack blood sugar management platform built with Vue 3, Node.js, and MySQL. It leverages Claude API to intelligently classify food components (Fiber, Protein, and Carbohydrates) and implements a custom Inversion Pair algorithm to score dietary impact based on optimal intake order. Architected with dual-token authentication and robust Vitest test coverage to guarantee 100% system reliability.
+              An AI-powered full-stack blood sugar management platform built with Vue 3, Node.js,
+              and MySQL. It leverages Claude API to intelligently classify food components (Fiber,
+              Protein, and Carbohydrates) and implements a custom Inversion Pair algorithm to score
+              dietary impact based on optimal intake order. Architected with dual-token
+              authentication and robust Vitest test coverage to guarantee 100% system reliability.
             </figcaption>
             <div class="link__group">
               <ProjectLink
                 class="link project_link"
-                href="https://github.com/dizzydog-rgb/my-portfolio-website"
+                href="https://orderly-steady.com/"
                 label="View Project"
               />
               <ProjectLink
                 class="link project_link"
-                href="https://github.com/dizzydog-rgb/my-portfolio-website"
+                href="https://github.com/dizzydog-rgb/orderly-steady"
                 label="View Github"
               />
             </div>
@@ -103,14 +151,22 @@
             </div>
             <h2>Orderly & Steady</h2>
             <p>
-              An AI-powered full-stack blood sugar management platform built with Vue 3, Node.js, and MySQL. It leverages Claude API to intelligently classify food components (Fiber, Protein, and Carbohydrates) and implements a custom Inversion Pair algorithm to score dietary impact based on optimal intake order. Architected with dual-token authentication and robust Vitest test coverage to guarantee 100% system reliability.
+              An AI-powered full-stack blood sugar management platform built with Vue 3, Node.js,
+              and MySQL. It leverages Claude API to intelligently classify food components (Fiber,
+              Protein, and Carbohydrates) and implements a custom Inversion Pair algorithm to score
+              dietary impact based on optimal intake order. Architected with dual-token
+              authentication and robust Vitest test coverage to guarantee 100% system reliability.
             </p>
           </div>
         </div>
         <div class="product__item">
           <figure>
             <figure>
-              <img src="@/assets/images/chill-around.webp" alt="Chill Around" class="product__mockup" />
+              <img
+                src="@/assets/images/chill-around.webp"
+                alt="Chill Around"
+                class="product__mockup"
+              />
             </figure>
             <figcaption>
               Chill Around is a tourism platform enabling users to explore attractions and plan
@@ -119,14 +175,14 @@
               their itineraries efficiently.
             </figcaption>
             <div class="link__group">
-              <ProjectLink
+              <!-- <ProjectLink
                 class="link project_link"
                 href="https://github.com/dizzydog-rgb/my-portfolio-website"
                 label="View Project"
-              />
+              /> -->
               <ProjectLink
                 class="link project_link"
-                href="https://github.com/dizzydog-rgb/my-portfolio-website"
+                href="https://github.com/dizzydog-rgb/chill-around-project"
                 label="View Github"
               />
             </div>
@@ -366,7 +422,9 @@ function deactivateTitle(el) {
 
 .product__img .product__item .product__mockup {
   filter: drop-shadow(8px 12px 24px rgba(40, 30, 20, 0.15));
-  transition: transform 0.3s ease, filter 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
 }
 .product__img .product__item .product__mockup:hover {
   transform: translateY(-4px);
@@ -397,13 +455,14 @@ function deactivateTitle(el) {
   overflow: hidden;
   position: relative;
 }
-.gallery__link .hover__overlay{
+.gallery__link .hover__overlay {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.gallery__link .hover__overlay span{
+.gallery__link .hover__overlay span {
   display: inline-block;
   font-size: var(--f18);
   color: var(--SubColor);
@@ -418,7 +477,8 @@ function deactivateTitle(el) {
   transition: 0.5s;
 }
 @keyframes scale-up {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {
@@ -436,8 +496,6 @@ function deactivateTitle(el) {
   transform: scale(1.05);
 }
 
-
-
 @media (max-width: 1440px) {
 }
 @media (max-width: 1024px) {
@@ -454,7 +512,7 @@ function deactivateTitle(el) {
     display: block;
     padding-top: 20px;
   }
-  .product__item .product__title__mobile > div{
+  .product__item .product__title__mobile > div {
     gap: 12px;
   }
   .product__img .product__item figcaption {
